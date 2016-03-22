@@ -1,0 +1,331 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="site.master.cs" Inherits="site" %>
+
+<%@ Register TagPrefix="asp" Namespace="AjaxControlToolkit" Assembly="AjaxControlToolkit, Version=3.5.40412.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e" %>
+<%@ Register TagPrefix="asp" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI, Version=2012.3.1016.35, Culture=neutral, PublicKeyToken=121fae78165ba3d4" %>
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" type="image/ico" href="favicon.ico" />
+    <link href="../assets/styles/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/styles/nivo-slider.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/styles/slick.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/styles/site.css" rel="stylesheet" type="text/css" />
+    <script src="../assets/js/jquery.js" type="text/javascript"></script>
+    <script src="../assets/js/slick.min.js" type="text/javascript"></script>
+    <script src="../assets/js/jquery.textheight.js" type="text/javascript"></script>
+    <script src="../assets/js/jquery.main.js" type="text/javascript"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <style type="text/css">
+            .corner
+            { 
+                position: relative; behavior: url(PIE.htc); 
+            }
+        </style>
+        <script type="text/javascript" src="assets/js/html5shiv.js"></script>
+        <script src="assets/js/respond.js" type="text/javascript"></script>
+    <![endif]-->
+    <!--[if lte IE 7]>
+	    <script src="assets/js/IE8.js" type="text/javascript"></script>
+    <![endif]-->
+    <!--active menu-->
+    <script type="text/javascript">
+        function changeActiveMenu(page) {
+            $('#menu li').removeClass("active");
+            $('#menu li a[href*="' + page + '"]').parent("li").addClass("active");
+        }
+        function changeSubActiveMenu(page) {
+            $('#menu li li').removeClass("active");
+            $('#menu li li a[href$="' + page + '"]').closest("li").addClass("active");
+        }
+    </script>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
+    </asp:ToolkitScriptManager>
+    <div id="wrapper">
+        <div id="wrapper-in">
+            <div id="header">
+                <div class="header-top">
+                    <div class="wrapper-main">
+                        <div class="header-left">
+                            <div class="wrapper-logo">
+                                <div id="logo">
+                                    <a href="~/en/" runat="server">
+                                        <img class="img-responsive" src="../assets/images/logo.png" alt="logo" /></a></div>
+                            </div>
+                        </div>
+                        <div class="header-right">
+                            <div id="language">
+                                    <asp:ImageButton ID="btnVN" runat="server" ImageUrl="~/assets/images/flag-vn.png"
+                                        OnClick="btnVN_Click" /> 
+                                    <asp:ImageButton ID="btnEN" runat="server" ImageUrl="~/assets/images/flag-en.png"
+                                        OnClick="btnEN_Click" />
+                            </div>
+                            <div id="hotline" class="desktop-showhide">
+                                <div class="phone">
+                                    <span>Hotline</span><strong>1800 1186</strong></div>
+                            </div>
+                            <div class="contactus">
+                                <a class="link-a login-link desktop-showhide" href="#login">Contact us<span class="icona-right glyphicon glyphicon-chevron-right"></span></a>
+                                <a class="link-a login-link mobile-showhide" href="#login">
+                                    <img src="../assets/images/e_mail.png" alt="" /></a>
+                                <div id="login">
+                                    <div class="login-input">
+                                        <asp:TextBox ID="txtFullName" CssClass="login-text" runat="server"></asp:TextBox>
+                                        <asp:TextBoxWatermarkExtender ID="txtFullName_WatermarkExtender" runat="server" Enabled="True"
+                                            WatermarkText="Fullname" TargetControlID="txtFullName">
+                                        </asp:TextBoxWatermarkExtender>
+                                        <asp:RequiredFieldValidator CssClass="lb-error" ID="RequiredFieldValidator1" runat="server"
+                                            Display="Dynamic" ValidationGroup="SendContact" ControlToValidate="txtFullName"
+                                            ErrorMessage="Information required!" ForeColor="Red"></asp:RequiredFieldValidator>
+                                    </div>
+                                    <div class="login-input">
+                                        <asp:TextBox ID="txtEmail" CssClass="login-text" runat="server"></asp:TextBox>
+                                        <asp:TextBoxWatermarkExtender ID="txtEmail_WatermarkExtender" runat="server" Enabled="True"
+                                            WatermarkText="Email" TargetControlID="txtEmail">
+                                        </asp:TextBoxWatermarkExtender>
+                                        <asp:RegularExpressionValidator CssClass="lb-error" ID="RegularExpressionValidator1"
+                                            runat="server" ValidationGroup="SendContact" ControlToValidate="txtEmail" ErrorMessage="Email not match!"
+                                            ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" Display="Dynamic"
+                                            ForeColor="Red"></asp:RegularExpressionValidator>
+                                        <asp:RequiredFieldValidator CssClass="lb-error" ID="RequiredFieldValidator2" runat="server"
+                                            ValidationGroup="SendContact" ControlToValidate="txtEmail" ErrorMessage="Information required!"
+                                            Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                                    </div>
+                                    <div class="login-input">
+                                        <asp:TextBox ID="txtPhone" CssClass="login-text" runat="server"></asp:TextBox>
+                                        <asp:TextBoxWatermarkExtender ID="txtPhone_WatermarkExtender" runat="server" Enabled="True"
+                                            WatermarkText="Phone" TargetControlID="txtPhone">
+                                        </asp:TextBoxWatermarkExtender>
+                                        <asp:RequiredFieldValidator CssClass="lb-error" ID="RequiredFieldValidator3" runat="server"
+                                            Display="Dynamic" ValidationGroup="SendContact" ControlToValidate="txtPhone"
+                                            ErrorMessage="Information required!" ForeColor="Red"></asp:RequiredFieldValidator>
+                                    </div>
+                                    <div class="login-input">
+                                        <asp:TextBox ID="txtAddress" CssClass="login-text" runat="server"></asp:TextBox>
+                                        <asp:TextBoxWatermarkExtender ID="txtAddress_WatermarkExtender" runat="server" Enabled="True"
+                                            WatermarkText="Address" TargetControlID="txtAddress">
+                                        </asp:TextBoxWatermarkExtender>
+                                        <asp:RequiredFieldValidator CssClass="lb-error" ID="RequiredFieldValidator4" runat="server"
+                                            Display="Dynamic" ValidationGroup="SendContact" ControlToValidate="txtAddress"
+                                            ErrorMessage="Information required!" ForeColor="Red"></asp:RequiredFieldValidator>
+                                    </div>
+                                    <div class="login-input">
+                                        <asp:TextBox ID="txtContent" CssClass="login-text content-area" runat="server" TextMode="MultiLine"></asp:TextBox>
+                                        <asp:TextBoxWatermarkExtender ID="txtContent_WatermarkExtender" runat="server" Enabled="True"
+                                            WatermarkText="Content" TargetControlID="txtContent">
+                                        </asp:TextBoxWatermarkExtender>
+                                        <asp:RequiredFieldValidator CssClass="lb-error" ID="RequiredFieldValidator5" runat="server"
+                                            Display="Dynamic" ValidationGroup="SendContact" ControlToValidate="txtContent"
+                                            ErrorMessage="Information required!" ForeColor="Red"></asp:RequiredFieldValidator>
+                                    </div>
+                                    <div class="login-input">
+                                        <asp:RadCaptcha ID="RadCaptcha1" ValidatedTextBoxID="txtSecurityCode" ValidationGroup="RegisterForm"
+                                            runat="server" Display="Dynamic" ErrorMessage="Mã xác nhận: không chính xác."
+                                            CaptchaLinkButtonText="Refesh" CssClass="capcha" EnableRefreshImage="True">
+                                            <CaptchaImage RenderImageOnly="True" Width="125" Height="35" BackgroundNoise="High"
+                                                BackgroundColor="White" TextColor="Black" FontFamily="Tohoma" TextLength="5" />
+                                        </asp:RadCaptcha>
+                                    </div>
+                                    <div class="login-input">
+                                        <asp:Button ID="btnSend" CssClass="btn-a" runat="server" Text="Send" ValidationGroup="SendContact" />
+                                        <asp:Label runat="server" ID="lblMessage" ForeColor="red"></asp:Label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clr">
+                        </div>
+                    </div>
+                </div>
+                <div id="header-menu">
+                    <div class="button-menu mobile-showhide">
+                        <a class="panel-left" href="#menuContent"><span class="icon-bar">bar</span> <span
+                            class="icon-bar">bar</span> <span class="icon-bar">bar</span> </a>
+                    </div>
+                    <div id="menuContent" class="menu-content">
+                        <ul id="menul2" class="mobile-show">
+                            <li class="active"><a id="A2" href="~/en/" runat="server">Home</a></li>
+                            <li><a href="javascript:void(0);">About us</a>
+                                <asp:ListView ID="lstAbout" runat="server" DataSourceID="odsAbout" EnableModelValidation="True">
+                                    <ItemTemplate>
+                                        <li><a href='<%# progressTitle(Eval("ArticleTitleEn")) + "-tt-" + Eval("ArticleID") + ".aspx" %>'>
+                                            <span class="icon-menucontent glyphicon glyphicon-chevron-right"></span>
+                                            <%# Eval("ArticleTitleEn")%></a></li>
+                                    </ItemTemplate>
+                                    <LayoutTemplate>
+                                        <ul class="menul2-sub">
+                                            <li runat="server" id="itemPlaceholder"></li>
+                                        </ul>
+                                    </LayoutTemplate>
+                                </asp:ListView>
+                                <asp:ObjectDataSource ID="odsAbout" runat="server" SelectMethod="ArticleSelectAll"
+                                    TypeName="TLLib.Article">
+                                    <SelectParameters>
+                                        <asp:Parameter Name="StartRowIndex" Type="String" />
+                                        <asp:Parameter Name="EndRowIndex" Type="String" />
+                                        <asp:Parameter Name="Keyword" Type="String" />
+                                        <asp:Parameter Name="ArticleTitle" Type="String" />
+                                        <asp:Parameter Name="Description" Type="String" />
+                                        <asp:Parameter Name="ArticleCategoryID" Type="String" />
+                                        <asp:Parameter Name="Tag" Type="String" />
+                                        <asp:Parameter Name="IsShowOnHomePage" Type="String" />
+                                        <asp:Parameter Name="IsHot" Type="String" />
+                                        <asp:Parameter Name="IsNew" Type="String" />
+                                        <asp:Parameter Name="FromDate" Type="String" />
+                                        <asp:Parameter Name="ToDate" Type="String" />
+                                        <asp:Parameter DefaultValue="True" Name="IsAvailable" Type="String" />
+                                        <asp:Parameter Name="Priority" Type="String" />
+                                        <asp:Parameter DefaultValue="True" Name="SortByPriority" Type="String" />
+                                    </SelectParameters>
+                                </asp:ObjectDataSource>
+                            </li>
+                            <li><a href="project.aspx">Project</a>
+                                <asp:ListView ID="lstProject" runat="server" DataSourceID="odsProject" EnableModelValidation="True">
+                                    <ItemTemplate>
+                                        <li><a href='<%# progressTitle(Eval("ProjectTitleEn")) + "-pri-" + Eval("ProjectID") + ".aspx" %>'>
+                                            <span class="icon-menucontent glyphicon glyphicon-chevron-right"></span>
+                                            <%# Eval("ProjectTitleEn")%></a></li>
+                                    </ItemTemplate>
+                                    <LayoutTemplate>
+                                        <ul class="menul2-sub">
+                                            <li runat="server" id="itemPlaceholder"></li>
+                                        </ul>
+                                    </LayoutTemplate>
+                                </asp:ListView>
+                                <asp:ObjectDataSource ID="odsProject" runat="server" SelectMethod="ProjectSelectAll"
+                                    TypeName="TLLib.Project">
+                                    <SelectParameters>
+                                        <asp:Parameter Name="StartRowIndex" Type="String" />
+                                        <asp:Parameter Name="EndRowIndex" Type="String" />
+                                        <asp:Parameter Name="Keyword" Type="String" />
+                                        <asp:Parameter Name="ProjectTitle" Type="String" />
+                                        <asp:Parameter Name="Description" Type="String" />
+                                        <asp:Parameter Name="ProjectCategoryID" Type="String" />
+                                        <asp:Parameter Name="Tag" Type="String" />
+                                        <asp:Parameter Name="IsShowOnHomePage" Type="String" />
+                                        <asp:Parameter Name="FromDate" Type="String" />
+                                        <asp:Parameter Name="ToDate" Type="String" />
+                                        <asp:Parameter DefaultValue="True" Name="IsAvailable" Type="String" />
+                                        <asp:Parameter Name="Priority" Type="String" />
+                                        <asp:Parameter DefaultValue="True" Name="SortByPriority" Type="String" />
+                                    </SelectParameters>
+                                </asp:ObjectDataSource>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="hotline-mo" class="mobile-showhide">
+                        <span>Hotline <strong>1800 1186</strong></span>
+                    </div>
+                    <ul id="menu" class="desktop-show">
+                        <li class="active"><a href="~/en/" class="corner" runat="server">Home</a></li>
+                        <li><a href="javascript:void(0);" class="corner">About us<span class="icona-right glyphicon glyphicon-chevron-right"></span></a>
+                            <asp:ListView ID="lstAboutMobile" runat="server" DataSourceID="odsAbout" EnableModelValidation="True">
+                                <ItemTemplate>
+                                    <li><a href='<%# progressTitle(Eval("ArticleTitleEn")) + "-tt-" + Eval("ArticleID") + ".aspx" %>'
+                                        class="corner">
+                                        <%# Eval("ArticleTitleEn")%></a></li>
+                                </ItemTemplate>
+                                <LayoutTemplate>
+                                    <ul class="menu-sub menu-right">
+                                        <li runat="server" id="itemPlaceholder"></li>
+                                    </ul>
+                                </LayoutTemplate>
+                            </asp:ListView>
+                        </li>
+                        <li><a href="project.aspx" class="corner">Project<span class="icona-right glyphicon glyphicon-chevron-right"></span></a>
+                            <asp:ListView ID="lstProjectMobile" runat="server" DataSourceID="odsProject" EnableModelValidation="True">
+                                <ItemTemplate>
+                                    <li><a href='<%# progressTitle(Eval("ProjectTitleEn")) + "-pri-" + Eval("ProjectID") + ".aspx" %>'
+                                        class="corner">
+                                        <%# Eval("ProjectTitleEn")%></a></li>
+                                </ItemTemplate>
+                                <LayoutTemplate>
+                                    <ul class="menu-sub menu-right">
+                                        <li runat="server" id="itemPlaceholder"></li>
+                                    </ul>
+                                </LayoutTemplate>
+                            </asp:ListView>
+                        </li>
+                    </ul>
+                    <div class="clr">
+                    </div>
+                </div>
+            </div>
+            <div id="mainContent">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <%--<div class="wrapper-support">
+                <div class="support">
+                    <a href="javascript:void(0);" id="button">Tư vấn / Hỗ trợ<span class="icona-support"><img
+                        src="assets/images/icon-support.png" alt="" /></span></a></div>
+                <div class="toggler">
+                    <div id="effect" class="ui-widget-content ui-corner-all">
+                        <p>
+                            Xin chào mừng bạn đến với VinHomes. Vui lòng cho chúng tôi biết mọi thắc mắc của
+                            quý khách để có thể hỗ trợ quý khách tốt nhất.
+                        </p>
+                        <div class="support-input">
+                            <asp:TextBox ID="TextBox6" CssClass="content-area" runat="server" TextMode="MultiLine"></asp:TextBox>
+                        </div>
+                        <div class="support-input">
+                            <asp:Button ID="Button1" CssClass="btn-support" runat="server" Text="Bắt đầu chat" />
+                        </div>
+                    </div>
+                </div>
+            </div>--%>
+            <!--footer-->
+            <div id="footer">
+                <div class="col-sm-6">
+                    <div class="footer-box">
+                        <div class="share-fa">
+                            Follow us on <a href="#">
+                                <img src="../assets/images/fbox-4.png" alt="" /></a><a href="#"><img src="../assets/images/fbox-3.png"
+                                    alt="" /></a><a href="#"><img src="../assets/images/fbox-2.png" alt="" /></a><a href="#"><img
+                                        src="../assets/images/fbox-1.png" alt="" /></a></div>
+                        <div class="online">
+                            Đang online: <strong>
+                                <%=Application["visitors_online"].ToString()%></strong> | Lượt truy cập: <strong>
+                                    <%=Application["TatCa"].ToString()%></strong></div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="footer-box text-right">
+                        <p>
+                            &copy; 2016 - VINHOME. All Rights Reserved | <a href="http://wwww.tranlegroup.com"
+                                target="_blank">Thiết kế web</a> <a href="http://wwww.tranlegroup.com" target="_blank">
+                                    Tran Le</a></p>
+                    </div>
+                </div>
+            </div>
+            <!--end footer-->
+        </div>
+        <asp:ContentPlaceHolder ID="cphBottom" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    <div class="mainbg">
+    </div>
+    <div id="sroltop">
+        <a class="corner" href="javascript:void(0);"><span class="glyphicon glyphicon-chevron-up">
+        </span></a>
+    </div>
+    <!--active-->
+    <div id="runScript" runat="server">
+    </div>
+    <script src="../assets/js/bootstrap.min.js" type="text/javascript"></script>
+    <!--script pannel mobile-->
+    <script src="../assets/js/jquery.panel.mobile.js" type="text/javascript"></script>
+    <!--script banner-->
+    <script src="../assets/js/jquery.nivo.slider.pack.js" type="text/javascript"></script>
+    </form>
+</body>
+</html>

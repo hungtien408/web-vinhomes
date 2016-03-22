@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "vinhomes_source", "vinhomes_source\", "{D5555A56-C6B8-4852-A6CA-07E5C5915C89}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv3.5"
+		Debug.AspNetCompiler.VirtualPath = "/vinhomes_source"
+		Debug.AspNetCompiler.PhysicalPath = "vinhomes_source\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\vinhomes_source\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/vinhomes_source"
+		Release.AspNetCompiler.PhysicalPath = "vinhomes_source\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\vinhomes_source\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "4837"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D5555A56-C6B8-4852-A6CA-07E5C5915C89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5555A56-C6B8-4852-A6CA-07E5C5915C89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
