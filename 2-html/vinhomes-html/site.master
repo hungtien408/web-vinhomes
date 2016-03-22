@@ -1,0 +1,261 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="site.master.cs" Inherits="site" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" type="image/ico" href="favicon.ico" />
+    <link href="assets/styles/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/styles/nivo-slider.css" rel="stylesheet" type="text/css" />
+    <link href="assets/styles/slick.css" rel="stylesheet" type="text/css" />
+    <link href="assets/styles/site.css" rel="stylesheet" type="text/css" />
+    <script src="assets/js/jquery.js" type="text/javascript"></script>
+    <script src="assets/js/slick.min.js" type="text/javascript"></script>
+    <script src="assets/js/jquery.textheight.js" type="text/javascript"></script>
+    <script src="assets/js/jquery.main.js" type="text/javascript"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <style type="text/css">
+            .corner
+            { 
+                position: relative; behavior: url(PIE.htc); 
+            }
+        </style>
+        <script type="text/javascript" src="assets/js/html5shiv.js"></script>
+        <script src="assets/js/respond.js" type="text/javascript"></script>
+    <![endif]-->
+    <!--[if lte IE 7]>
+	    <script src="assets/js/IE8.js" type="text/javascript"></script>
+    <![endif]-->
+    <!--active menu-->
+    <script type="text/javascript">
+        function changeActiveMenu(page) {
+            $('#menu li').removeClass("active");
+            $('#menu li a[href*="' + page + '"]').parent("li").addClass("active");
+        }
+        function changeSubActiveMenu(page) {
+            $('#menu li li').removeClass("active");
+            $('#menu li li a[href$="' + page + '"]').closest("li").addClass("active");
+        }
+    </script>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div id="wrapper">
+        <div id="wrapper-in">
+            <div id="header">
+                <div class="header-top">
+                    <div class="wrapper-main">
+                        <div class="header-left">
+                            <div class="wrapper-logo">
+                                <div id="logo">
+                                    <a href="~/" runat="server">
+                                        <img class="img-responsive" src="assets/images/logo.png" alt="logo" /></a></div>
+                            </div>
+                        </div>
+                        <div class="header-right">
+                            <div id="language">
+                                <a href="#">
+                                    <img src="assets/images/flag-vn.png" alt="" /></a> <a href="#">
+                                        <img src="assets/images/flag-en.png" alt="" /></a>
+                            </div>
+                            <div id="hotline" class="desktop-showhide">
+                                <div class="phone">
+                                    <span>Hotline</span><strong>1800 1186</strong></div>
+                            </div>
+                            <div class="contactus">
+                                <a class="link-a login-link desktop-showhide" href="#login">Liên hệ với chúng tôi<span
+                                    class="icona-right glyphicon glyphicon-chevron-right"></span></a> <a class="link-a login-link mobile-showhide"
+                                        href="#login">
+                                        <img src="assets/images/e_mail.png" alt="" /></a>
+                                <div id="login">
+                                    <div class="login-input">
+                                        <asp:TextBox ID="TextBox3" CssClass="login-text" runat="server" Text="Họ tên"></asp:TextBox>
+                                    </div>
+                                    <div class="login-input">
+                                        <asp:TextBox ID="TextBox4" CssClass="login-text" runat="server" Text="Email"></asp:TextBox>
+                                    </div>
+                                    <div class="login-input">
+                                        <asp:TextBox ID="TextBox1" CssClass="login-text" runat="server" Text="Điện thoại"></asp:TextBox>
+                                    </div>
+                                    <div class="login-input">
+                                        <asp:TextBox ID="TextBox2" CssClass="login-text" runat="server" Text="Địa chỉ"></asp:TextBox>
+                                    </div>
+                                    <div class="login-input">
+                                        <asp:TextBox ID="TextBox5" CssClass="login-text content-area" runat="server" Text="Nội dung"
+                                            TextMode="MultiLine"></asp:TextBox>
+                                    </div>
+                                    <div class="login-input">
+                                        <asp:Button ID="LoginButton1" CssClass="btn-a" runat="server" Text="Gửi" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clr">
+                        </div>
+                    </div>
+                </div>
+                <div id="header-menu">
+                    <div class="button-menu mobile-showhide">
+                        <a class="panel-left" href="#menuContent"><span class="icon-bar">bar</span> <span
+                            class="icon-bar">bar</span> <span class="icon-bar">bar</span> </a>
+                    </div>
+                    <div id="menuContent" class="menu-content">
+                        <ul id="menul2" class="mobile-show">
+                            <li class="active"><a id="A2" href="~/" runat="server">Trang chủ</a></li>
+                            <li><a href="about-us.aspx">Giới thiệu</a>
+                                <ul class="menul2-sub">
+                                    <li><a href="#"><span class="icon-menucontent glyphicon glyphicon-chevron-right"></span>Thư ngõ</a></li>
+                                    <li><a href="#"><span class="icon-menucontent glyphicon glyphicon-chevron-right"></span>Giới thiệu dự án</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="project.aspx">Dự án</a>
+                                <ul class="menul2-sub">
+                                    <li><a href="project-details.aspx"><span class="icon-menucontent glyphicon glyphicon-chevron-right"></span>Vinhomes Bason</a></li>
+                                    <li><a href="#"><span class="icon-menucontent glyphicon glyphicon-chevron-right"></span>Vinhomes Tân Cảng</a></li>
+                                    <li><a href="#"><span class="icon-menucontent glyphicon glyphicon-chevron-right"></span>Vinhomes Nha Trang</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="hotline-mo" class="mobile-showhide">
+                        <span>Hotline <strong>1800 1186</strong></span>
+                    </div>
+                    <ul id="menu" class="desktop-show">
+                        <li class="active"><a href="~/" class="corner" runat="server">Trang chủ</a></li>
+                        <li><a href="about-us.aspx" class="corner">Giới thiệu<span class="icona-right glyphicon glyphicon-chevron-right"></span></a>
+                            <ul class="menu-sub menu-right">
+                                <li><a href="#" class="corner">Thư ngõ</a></li>
+                                <li><a href="#" class="corner">Giới thiệu dự án</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="project.aspx" class="corner">Dự án<span class="icona-right glyphicon glyphicon-chevron-right"></span></a>
+                            <ul class="menu-sub menu-right">
+                                <li><a href="project-details.aspx" class="corner">Vinhomes Bason</a></li>
+                                <li><a href="#" class="corner">Vinhomes Tân Cảng</a></li>
+                                <li><a href="#" class="corner">Vinhomes Nha Trang</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="clr">
+                    </div>
+                </div>
+            </div>
+            <div id="mainContent">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <div class="wrapper-support">
+                <div class="support">
+                    <a href="javascript:void(0);" id="button">Tư vấn / Hỗ trợ<span class="icona-support"><img
+                        src="assets/images/icon-support.png" alt=""/></span></a></div>
+                <div class="toggler">
+                    <div id="effect" class="ui-widget-content ui-corner-all">
+                        <p>
+                            Xin chào mừng bạn đến với VinHomes. Vui lòng cho chúng tôi biết mọi thắc mắc của
+                            quý khách để có thể hỗ trợ quý khách tốt nhất.
+                        </p>
+                        <div class="support-input">
+                            <asp:TextBox ID="TextBox6" CssClass="content-area" runat="server" TextMode="MultiLine"></asp:TextBox>
+                        </div>
+                        <div class="support-input">
+                            <asp:Button ID="Button1" CssClass="btn-support" runat="server" Text="Bắt đầu chat" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--footer-->
+            <div id="footer">
+                <div class="col-sm-6">
+                    <div class="footer-box">
+                        <div class="share-fa">
+                            Follow us on <a href="#">
+                                <img src="assets/images/fbox-4.png" alt="" /></a><a href="#"><img src="assets/images/fbox-3.png"
+                                    alt="" /></a><a href="#"><img src="assets/images/fbox-2.png" alt="" /></a><a href="#"><img
+                                        src="assets/images/fbox-1.png" alt="" /></a></div>
+                        <div class="online">
+                            Đang online: <strong>153</strong> | Lượt truy cập: <strong>5213451</strong></div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="footer-box text-right">
+                        <p>
+                            &copy; 2016 - VINHOME. All Rights Reserved | <a href="http://wwww.tranlegroup.com"
+                                target="_blank">Thiết kế web</a> <a href="http://wwww.tranlegroup.com" target="_blank">
+                                    Tran Le</a></p>
+                    </div>
+                </div>
+            </div>
+            <!--end footer-->
+        </div>
+        <!--menumobile-->
+        <%--<div id="menumobile" class="mobile-panel mobilep-left">
+            <div class="close-menu">
+                <a href="#menumobile" class="glyphicon glyphicon-remove-circle"></a>
+            </div>
+            <div class="menu-in">
+                <div class="menu-mobile">
+                    <ul class="menu-nav">
+                        <li><a href="~/" class="corner" runat="server">Trang chủ</a></li>
+                        <li><a href="#" class="corner">Giới thiệu</a>
+                            <ul>
+                                <li><a href="#" class="corner"><span class="glyphicon glyphicon-menu-right">
+                                </span>Sản phẩm</a></li>
+                                <li><a href="#" class="corner"><span class="glyphicon glyphicon-menu-right">
+                                </span>Tiện ích</a></li>
+                                <li><a href="#" class="corner"><span class="glyphicon glyphicon-menu-right">
+                                </span>Dịch vụ</a></li>
+                                <li><a href="#" class="corner"><span class="glyphicon glyphicon-menu-right">
+                                </span>An ninh an toàn</a></li>
+                                <li><a href="#" class="corner"><span class="glyphicon glyphicon-menu-right">
+                                </span>Văn hoá cộng đồng</a></li>
+                                <li><a href="#" class="corner"><span class="glyphicon glyphicon-menu-right">
+                                </span>Môi trường sống</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" class="corner">Dự án</a>
+                            <ul>
+                                <li><a href="#" class="corner"><span class="glyphicon glyphicon-menu-right">
+                                </span>Sản phẩm</a></li>
+                                <li><a href="#" class="corner"><span class="glyphicon glyphicon-menu-right">
+                                </span>Tiện ích</a></li>
+                                <li><a href="#" class="corner"><span class="glyphicon glyphicon-menu-right">
+                                </span>Dịch vụ</a></li>
+                                <li><a href="#" class="corner"><span class="glyphicon glyphicon-menu-right">
+                                </span>An ninh an toàn</a></li>
+                                <li><a href="#" class="corner"><span class="glyphicon glyphicon-menu-right">
+                                </span>Văn hoá cộng đồng</a></li>
+                                <li><a href="#" class="corner"><span class="glyphicon glyphicon-menu-right">
+                                </span>Môi trường sống</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>--%>
+        <!--end menumobile-->
+        <asp:ContentPlaceHolder ID="cphBottom" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    <div class="mainbg">
+    </div>
+    <div id="sroltop">
+        <a class="corner" href="javascript:void(0);"><span class="glyphicon glyphicon-chevron-up">
+        </span></a>
+    </div>
+    <!--active-->
+    <div id="runScript" runat="server">
+    </div>
+    <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+    <!--script pannel mobile-->
+    <script src="assets/js/jquery.panel.mobile.js" type="text/javascript"></script>
+    <!--script banner-->
+    <script src="assets/js/jquery.nivo.slider.pack.js" type="text/javascript"></script>
+    </form>
+</body>
+</html>
