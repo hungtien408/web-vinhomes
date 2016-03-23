@@ -9,7 +9,7 @@
     <div class="wrapper-project">
         <div class="wrapper-in">
             <h2 class="title text-uppercase text-center">
-                Real Estate for sale</h2>
+                <asp:Label ID="lblTitle" runat="server"></asp:Label></h2>
             <div class="project-tb row">
                 <asp:ListView ID="lstProject" runat="server" DataSourceID="odsProject" EnableModelValidation="True">
                     <ItemTemplate>
@@ -36,7 +36,7 @@
                             <asp:Parameter Name="Keyword" Type="String" />
                             <asp:Parameter Name="ProjectTitle" Type="String" />
                             <asp:Parameter Name="Description" Type="String" />
-                            <asp:Parameter Name="ProjectCategoryID" Type="String" />
+                            <asp:QueryStringParameter QueryStringField="pci" Name="ProjectCategoryID" Type="String" />
                             <asp:Parameter Name="Tag" Type="String" />
                             <asp:Parameter DefaultValue="True" Name="IsShowOnHomePage" Type="String" />
                             <asp:Parameter Name="FromDate" Type="String" />

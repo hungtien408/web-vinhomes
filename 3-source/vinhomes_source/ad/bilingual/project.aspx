@@ -148,10 +148,10 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="left invisible">
+                    <td class="left">
                         Danh mục
                     </td>
-                    <td class="invisible">
+                    <td>
                         <asp:RadComboBox Filter="Contains" ID="ddlSearchCategory" runat="server" DataSourceID="ObjectDataSource2"
                             DataTextField="ProjectCategoryName" DataValueField="ProjectCategoryID" OnDataBound="DropDownList_DataBound"
                             Width="134px">
@@ -285,7 +285,7 @@
                     </asp:GridBoundColumn>
                     <asp:GridBoundColumn DataField="ProjectTitle" HeaderText="Tên dự án" SortExpression="ProjectTitle" />
                     <asp:GridBoundColumn DataField="ProjectTitleEn" HeaderText="Tên dự án(En)" SortExpression="ProjectTitle" />
-                    <asp:GridBoundColumn DataField="ProjectCategoryName" HeaderText="Danh mục" SortExpression="ProjectCategoryName" Visible="False" />
+                    <asp:GridBoundColumn DataField="ProjectCategoryName" HeaderText="Danh mục" SortExpression="ProjectCategoryName" />
                     <asp:GridTemplateColumn DataField="Priority" HeaderStyle-Width="1%" HeaderText="Thứ tự"
                         SortExpression="Priority">
                         <ItemTemplate>
@@ -381,7 +381,7 @@
                                             Checked='<%# (Container is GridEditFormInsertItem) ? true : (string.IsNullOrEmpty(Eval("IsAvailable").ToString()) ? false : Eval("IsAvailable")) %>' />
                                     </td>
                                 </tr>
-                                <tr class="invisible">
+                                <tr>
                                     <td class="left">
                                         Danh mục
                                     </td>

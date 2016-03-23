@@ -123,7 +123,15 @@
                         Font-Bold="True" NavigateUrl="~/ad/bilingual/about.aspx">
                     </asp:RadMenuItem>
                     <asp:RadMenuItem runat="server" Owner="RadMenu1" PostBack="False" Text="Dự án"
-                        Font-Bold="True" NavigateUrl="~/ad/bilingual/project.aspx">
+                        Font-Bold="True">
+                        <Items>
+                            <asp:RadMenuItem runat="server" NavigateUrl="~/ad/bilingual/project.aspx" Text="Bài Viết">
+                            </asp:RadMenuItem>
+                            <asp:RadMenuItem runat="server" IsSeparator="True">
+                            </asp:RadMenuItem>
+                            <asp:RadMenuItem runat="server" NavigateUrl="~/ad/bilingual/projectcategory.aspx" Text="Danh Mục">
+                            </asp:RadMenuItem>
+                        </Items>
                     </asp:RadMenuItem>
                 </Items>
             </asp:RadMenu>

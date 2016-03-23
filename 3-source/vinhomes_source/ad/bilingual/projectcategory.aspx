@@ -201,13 +201,13 @@
                                 Text='<%# Eval("ParentCategoryName")%>'></asp:Label>
                         </ItemTemplate>
                     </asp:GridTemplateColumn>
-                    <asp:GridTemplateColumn DataField="IsShowOnMenu" HeaderText="Xem trên menu">
+                    <asp:GridTemplateColumn DataField="IsShowOnMenu" HeaderText="Xem trên menu" Visible="False">
                         <ItemTemplate>
                             <asp:CheckBox ID="chkIsShowOnMenu" runat="server" Checked='<%# Eval("IsShowOnMenu") == DBNull.Value ? false : Convert.ToBoolean(Eval("IsShowOnMenu"))%>'
                                 CssClass="checkbox" />
                         </ItemTemplate>
                     </asp:GridTemplateColumn>
-                    <asp:GridTemplateColumn DataField="IsShowOnHomePage" HeaderText="Xem trên trang chủ">
+                    <asp:GridTemplateColumn DataField="IsShowOnHomePage" HeaderText="Xem trên trang chủ" Visible="False">
                         <ItemTemplate>
                             <asp:CheckBox ID="chkIsShowOnHomePage" runat="server" Checked='<%# Eval("IsShowOnHomePage") == DBNull.Value ? false : Convert.ToBoolean(Eval("IsShowOnHomePage"))%>'
                                 CssClass="checkbox" />
@@ -219,7 +219,7 @@
                                 CssClass="checkbox" />
                         </ItemTemplate>
                     </asp:GridTemplateColumn>
-                    <asp:GridTemplateColumn HeaderText="Ảnh">
+                    <asp:GridTemplateColumn HeaderText="Ảnh" Visible="False">
                         <ItemTemplate>
                             <asp:Panel ID="Panel1" runat="server" Visible='<%# string.IsNullOrEmpty( Eval("ImageName").ToString()) ? false : true %>'>
                                 <a class="screenshot" rel='../../res/productcategory/<%# Eval("ImageName") %>'>
@@ -242,7 +242,7 @@
                             <h3 class="searchTitle">
                                 Thông Tin Danh Mục Dự Án</h3>
                             <table class="search">
-                                <tr>
+                                <tr class="invisible">
                                     <td class="left" valign="top">
                                         Ảnh đại diện
                                     </td>
@@ -431,10 +431,10 @@
                                 <tr>
                                     <td class="left" colspan="2">
                                         <asp:CheckBox ID="chkIsShowOnMenu" runat="server" Checked='<%# (Container is GridEditFormInsertItem) ? true : (Eval("IsShowOnMenu") == DBNull.Value ? false : Convert.ToBoolean(Eval("IsShowOnMenu"))) %>'
-                                            CssClass="checkbox" Text=" Xem trên menu" />
+                                            CssClass="checkbox" Text=" Xem trên menu" Visible="False" />
                                         &nbsp;&nbsp;
                                         <asp:CheckBox ID="chkIsShowOnHomePage" runat="server" Checked='<%# (Container is GridEditFormInsertItem) ? true : (Eval("IsShowOnHomePage") == DBNull.Value ? false : Convert.ToBoolean(Eval("IsShowOnHomePage"))) %>'
-                                            CssClass="checkbox" Text=" Xem trên trang chủ" />
+                                            CssClass="checkbox" Text=" Xem trên trang chủ" Visible="False" />
                                         &nbsp;&nbsp;
                                         <asp:CheckBox ID="chkIsAvailable" runat="server" Checked='<%# (Container is GridEditFormInsertItem) ? true : (Eval("IsAvailable") == DBNull.Value ? false : Convert.ToBoolean(Eval("IsAvailable"))) %>'
                                             CssClass="checkbox" Text=" Hiển thị" />

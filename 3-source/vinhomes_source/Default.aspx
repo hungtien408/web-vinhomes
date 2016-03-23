@@ -12,12 +12,12 @@
                 <ItemTemplate>
                     <div class="slick-slide">
                         <div class="box-pro">
-                            <a href="#" class="pro-img">
+                            <a href='<%# progressTitle(Eval("ProjectTitle")) + "-pri-" + Eval("ProjectID") + ".aspx" %>' class="pro-img">
                                 <img id="Img1" alt='<%# Eval("ImageName") %>' src='<%# !string.IsNullOrEmpty(Eval("ImageName").ToString()) ? "~/res/project/" + Eval("ImageName") : "~/assets/images/img-pro-1.png" %>' runat="server" /></a>
                             <h2 class="title-pro">
                                 <span>Dự án</span></h2>
                             <div class="pro-name">
-                                <%# Eval("ProjectTitle") %></div>
+                                <a href='<%# progressTitle(Eval("ProjectTitle")) + "-pri-" + Eval("ProjectID") + ".aspx" %>'><%# Eval("ProjectTitle") %></a></div>
                         </div>
                     </div>
                 </ItemTemplate>

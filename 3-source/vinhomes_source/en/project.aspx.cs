@@ -14,17 +14,17 @@ public partial class project : System.Web.UI.Page
         if (!IsPostBack)
         {
             string strTitle, strDescription, strMetaTitle, strMetaDescription;
-            if (!string.IsNullOrEmpty(Request.QueryString["pri"]))
+            if (!string.IsNullOrEmpty(Request.QueryString["pci"]))
             {
-                var oProject = new Project();
-                var dv = oProject.ProjectSelectOne(Request.QueryString["pri"]).DefaultView;
+                var oProjectCategory = new ProjectCategory();
+                var dv = oProjectCategory.ProjectCategorySelectOne(Request.QueryString["pci"]).DefaultView;
 
                 if (dv != null && dv.Count <= 0) return;
                 var row = dv[0];
 
-                strTitle = Server.HtmlDecode(row["ProjectTitleEn"].ToString());
+                strTitle = Server.HtmlDecode(row["ProjectCategoryNameEn"].ToString());
                 strDescription = Server.HtmlDecode(row["DescriptionEn"].ToString());
-                strMetaTitle = Server.HtmlDecode(row["MetaTittleEn"].ToString());
+                strMetaTitle = Server.HtmlDecode(row["MetaTitleEn"].ToString());
                 strMetaDescription = Server.HtmlDecode(row["MetaDescriptionEn"].ToString());
             }
             else
@@ -37,7 +37,7 @@ public partial class project : System.Web.UI.Page
             var meta = new HtmlMeta() { Name = "description", Content = !string.IsNullOrEmpty(strMetaDescription) ? strMetaDescription : strDescription };
             Header.Controls.Add(meta);
 
-            //lblTitle.Text = strTitle;
+            lblTitle.Text = strTitle;
         }
     }
     protected string progressTitle(object input)

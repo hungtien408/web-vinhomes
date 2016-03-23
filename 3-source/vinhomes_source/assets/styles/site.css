@@ -345,9 +345,7 @@ body
     padding: 0;
     margin: 0;
     position: absolute;
-    overflow: hidden;
-    white-space: nowrap;
-    min-width: 230px;
+    min-width: 260px;
     z-index: 99;
 }
 #menu .menu-right
@@ -362,10 +360,10 @@ body
     display: block;
     font-size: 14px;
     font-weight: 700;
-    line-height: 45px;
+    line-height: 30px;
     text-align: center;
     text-transform: uppercase;
-    padding: 0 20px;
+    padding: 8px 20px;
     border-radius: 25px;
     -moz-border-radius: 25px;
     -webkit-border-radius: 25px;
@@ -395,11 +393,34 @@ body
     top: 27%;
     right: 10px;
 }
+.menu-sub ul, .menul2-sub ul
+{
+    display: none;
+    left: 100%;
+    padding: 0 1px 0 0;
+    right: auto;
+    top: 0;
+    width: 100%;
+    position: absolute;
+}
+.menul2-sub ul {
+    position: relative;
+    left: 0;
+    right: 0;
+}
+.icona-left {
+    left: 5px;
+    position: absolute;
+    top: 8px;
+}
+.menul2-sub ul li a {
+    padding-left: 20px;
+}
 /*================menu-mobile================*/
 #hotline-mo
 {
     color: #fff;
-    font-size: 13px;
+    font-size: 15px;
     line-height: 24px;
     padding-left: 35px;
     overflow: hidden;
@@ -409,7 +430,7 @@ body
 }
 #hotline-mo strong
 {
-    font-size: 26px;
+    font-size: 28px;
     font-weight: 700;
 }
 .button-menu
@@ -596,7 +617,7 @@ body
     list-style: none;
     margin: 15px 0 0;
     position: absolute;
-    width: 199px;
+    width: 230px;
     z-index: 9999;
     left: 0;
     right: auto;
@@ -649,9 +670,7 @@ body
     list-style: none;
     padding: 0;
     margin: 0;
-    position: absolute;
-    overflow: hidden;
-    white-space: nowrap;
+    position: absolute;    
     min-width: 230px;
     z-index: 99;
     left: 100%;
@@ -913,6 +932,14 @@ body
     width: 100%;
     text-align: left;
     padding-left: 12px;
+}
+.pro-name a {
+    display: block;
+    position: relative;
+    color: #fff;
+}
+.pro-name a:hover {
+    text-decoration: none;
 }
 /*=======col aside====*/
 .wrapper-about, .wrapper-project {
@@ -1312,7 +1339,7 @@ body .mobilep-right {
 }
 @media (min-width: 981px) and (max-width: 1199px)
 {
-    .title-pro, .pro-name {
+    .title-pro, .pro-name, .pro-name a {
         height: 18px;
         line-height: 18px;
         font-size: 9px;
@@ -1382,10 +1409,9 @@ body .mobilep-right {
 /* Portrait tablet to landscape and desktop */
 @media (min-width: 768px) and (max-width: 980px)
 {
-    #menu > li > a, .menu-sub li a
+    #menu > li > a
     {
         font-size: 16px;
-        line-height: 45px;
     }
     .menu-sub li a {
         font-size: 13px;
@@ -1407,11 +1433,6 @@ body .mobilep-right {
     #footer .text-right {
         text-align: center;
     }
-    .title-pro, .pro-name {
-        height: 18px;
-        line-height: 18px;
-        font-size: 9px;
-    }
     .slick-slider .slick-center .box-pro {
         -moz-transform: scale(2.2);
         -ms-transform: scale(2.2);
@@ -1425,7 +1446,7 @@ body .mobilep-right {
     .slick-prev {
         left: 34%;
     }
-    .title-pro, .pro-name {
+    .title-pro, .pro-name, .pro-name a {
         height: 10px;
         line-height: 10px;
         font-size: 6px;
@@ -1452,9 +1473,11 @@ body .mobilep-right {
 }
 @media (min-width: 768px) and (max-width: 870px)
 {
-    #menu > li > a, .menu-sub li a {
+    #menu .menu-sub {
+        min-width: 230px;
+    }
+    #menu > li > a {
         font-size: 14px;
-        line-height: 40px;
     }
     .menu-sub li a 
     {
@@ -1496,7 +1519,7 @@ body .mobilep-right {
         float: none;
         text-align: center;
     }
-    .title-pro, .pro-name {
+    .title-pro, .pro-name, .pro-name a {
         height: 18px;
         line-height: 18px;
         font-size: 9px;
@@ -1548,7 +1571,7 @@ body .mobilep-right {
         -webkit-transform: scale(2.2);
         transform: scale(2.2);
     }
-    .title-pro, .pro-name {
+    .title-pro, .pro-name, .pro-name a {
         height: 10px;
         line-height: 10px;
         font-size: 6px;
@@ -1599,7 +1622,7 @@ body .mobilep-right {
         -webkit-transform: scale(3.4);
         transform: scale(3.4);
     }
-    .title-pro, .pro-name {
+    .title-pro, .pro-name, .pro-name a {
         height: 8px;
         line-height: 8px;
         font-size: 3.5px;
@@ -1644,7 +1667,7 @@ body .mobilep-right {
         -webkit-transform: scale(0.8);
         transform: scale(0.8);
     }
-    .title-pro, .pro-name {
+    .title-pro, .pro-name, .pro-name a {
         height: 24px;
         line-height: 24px;
         font-size: 14px;
@@ -1670,17 +1693,26 @@ body .mobilep-right {
     }
     #menul2 .menul2-sub {
         position: relative;
-        right: 0;
+        left: 0;
     }
     #menul2 li li a {
         text-align: left;
         padding-left: 10px;
+    }
+    .icona-left {
+        display: none;
     }
     .icon-menucontent {
         display: inline-block;
     }
     .listAside .box-in {
         width: 100%;
+    }
+    #menul2 {
+        width: 260px;
+    }
+    #menul2 .menul2-sub {
+        min-width: 260px;
     }
 }
 @media (max-width: 420px)
