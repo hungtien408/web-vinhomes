@@ -616,12 +616,12 @@ body
 {
     list-style: none;
     margin: 15px 0 0;
-    position: absolute;
-    width: 230px;
+    position: relative;
+    width: 100%;
     z-index: 9999;
     left: 0;
     right: auto;
-    top: 36px;
+    top: 0;
 }
 #menul2 li {
     position: relative; 
@@ -690,6 +690,90 @@ body
     border-bottom: solid 1px #ac8609;
     position: relative;
 }
+/*===menu mobile bootrap===*/
+.navbar-header {
+    background-color: #bb913e;
+}
+.navbar-toggle {
+    float: left;
+    margin-left: 15px;
+    padding: 9px 0;
+}
+.navbar-brand {
+    float: right;
+}
+.navbar-collapse {
+    background-color: #00006b;
+}
+.navbar-default {
+    border-color: #00006b;
+}
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border-color: #00006b;
+}
+.navbar-default .navbar-toggle {
+    border-color: #bb913e;
+}
+.navbar-default .navbar-toggle:hover,  .navbar-default .navbar-toggle.active{
+    background: none;
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #fff;
+}
+.navbar-default .navbar-brand, .navbar-default .navbar-brand:hover {
+    color: #fff;
+    font-size: 15px;
+    padding: 15px 5px 15px 0;
+}
+.navbar-default .navbar-brand strong {
+    font-size: 28px;
+    font-weight: 700;
+}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
+    color: #fff;
+    background-color: #bf9844;
+}
+.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus {
+    color: #fff;
+    background-color: #bf9844;
+}
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus {
+    color: #fff;
+    background-color: #bf9844;
+}
+.navbar-default .navbar-nav>li>a {
+    color: #cfa54d;
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.navbar-default .navbar-nav .open .dropdown-menu>li>a {
+    color: #cfa54d;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+.navbar-default .navbar-nav .open .dropdown-menu>li>a:hover {
+    color: #fff;
+}
+.navbar-nav .open .dropdown-menu ul {
+    position: static;
+    float: none;
+    width: auto;
+    margin-top: 0;
+    background-color: transparent;
+    border: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.navbar-nav .open .dropdown-menu ul > li > a {
+    padding: 5px 15px 5px 50px;
+    color: #fff;
+    font-size: 14px;
+}
+.navbar-nav .open .dropdown-menu ul > li > a:hover {
+    text-decoration: none;
+}
+
 /*=====contactus====*/
 #login
 {
@@ -836,6 +920,8 @@ body
     position: relative;
     z-index: 1;
     width: 100%;
+    /*overflow: hidden;*/
+    min-height: 400px;
 }
 #mainContent #col-left
 {
@@ -1762,4 +1848,16 @@ body .mobilep-right {
 @media (max-width: 319px)
 {
 
+}
+#panel_chat_vatgia
+{
+    bottom: 0;
+    right: 0;
+    position: fixed;
+}
+#panel_chat_vatgia #vgc_btn_chat_mobile {
+    right: 50px;
+}
+.position-relative {
+    position: relative !important;
 }

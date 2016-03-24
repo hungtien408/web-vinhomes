@@ -22,7 +22,9 @@ public partial class site : System.Web.UI.MasterPage
 
             if (page.Contains("san-pham.aspx?ci=") || page.Contains("chi-tiet-san-pham.aspx?pi="))
                 activePage = "san-pham.aspx";
-            else if (page.Contains("-pri-"))
+            else if (page.Contains("-tt-"))
+                activePage = "about-us.aspx";
+            else if (page.Contains("-pci-") || page.Contains("-pri-"))
                 activePage = "project.aspx";
             else if (!page.EndsWith("default.aspx"))
                 activePage = Path.GetFileName(page);
@@ -37,16 +39,27 @@ public partial class site : System.Web.UI.MasterPage
     {
         return Common.ConvertTitle(input.ToString());
     }
+    private void sendEmail()
+    {
+        string msg = "<h3>VINHOMES GOLDEN RIVER: CONTACT</h3><br/>";
+        msg += "<b>Họ tên: </b>" + txtFullName.Text.Trim().ToString() + "<br />";
+        msg += "<b>Email: </b>" + txtEmail.Text.Trim().ToString() + "<br />";
+        msg += "<b>Điện thoại: </b>" + txtPhone.Text.Trim().ToString() + "<br />";
+        msg += "<b>Địa chỉ: </b>" + txtAddress.Text.Trim().ToString() + "<br />";
+        msg += "<b>Nội dung: </b>" + txtContent.Text.Trim().ToString();
+        Common.SendMail("smtp.gmail.com", 587, "vinhomesgolden01@gmail.com", "vinhome123456", "kimhoangf1@gmail.com", "", "CONTACT VINHOMES GOLDEN RIVER", msg, true);
+    }
     protected void btnSend_Click(object sender, EventArgs e)
     {
         if (Page.IsValid)
         {
-            if (RadCaptcha1.IsValid)
-            {
+            //if (RadCaptcha1.IsValid)
+            //{
 
                 //send email         
                 sendEmail();
                 lblMessage.Text = "Cám ơn bạn đã liên lạc với chúng tôi. Thông báo của bạn đã được gửi đi. Chúng tôi sẽ liên lạc với bạn trong thời gian sớm nhất!";
+                ScriptManager.RegisterClientScriptBlock(Page, Page.GetType(), "runtime", " $(document).ready(function () {alert('Cám ơn bạn đã liên lạc với chúng tôi. Thông báo của bạn đã được gửi đi. Chúng tôi sẽ liên lạc với bạn trong thời gian sớm nhất!')});", true);
                 lblMessage.Visible = true;
                 lblMessage.Text = "";
                 //
@@ -57,23 +70,13 @@ public partial class site : System.Web.UI.MasterPage
                 txtPhone.Text = "";
                 txtAddress.Text = "";
                 txtContent.Text = "";
-            }
-            else
-            {
-                lblMessage.Text = "Chuỗi xác nhận chưa đúng !";
-            }
+            //}
+            //else
+            //{
+            //    lblMessage.Text = "Chuỗi xác nhận chưa đúng !";
+            //    ScriptManager.RegisterClientScriptBlock(Page, Page.GetType(), "runtime", " $(document).ready(function () {alert('Chuỗi xác nhận chưa đúng !')});", true);
+            //}
         }
-    }
-
-    private void sendEmail()
-    {
-        string msg = "<h3>VINHOMES GOLDEN RIVER: CONTACT</h3><br/>";
-        msg += "<b>Họ tên: </b>" + txtFullName.Text.Trim().ToString() + "<br />";
-        msg += "<b>Email: </b>" + txtEmail.Text.Trim().ToString() + "<br />";
-        msg += "<b>Điện thoại: </b>" + txtPhone.Text.Trim().ToString() + "<br />";
-        msg += "<b>Địa chỉ: </b>" + txtAddress.Text.Trim().ToString() + "<br />";
-        msg += "<b>Nội dung: </b>" + txtContent.Text.Trim().ToString();
-        Common.SendMail("118.69.193.238", 25, "webmaster@thietkewebhcm.com", "web123master", "hungtien408@gmail.com", "", "Contact VINHOMES GOLDEN RIVER", msg, false);
     }
     protected void btnVN_Click(object sender, ImageClickEventArgs e)
     {

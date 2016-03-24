@@ -4,31 +4,37 @@
     }
     $(window).load(function () {
         // slider content
-
+        var numslide = $('.slick-slider .slide').size();
+        var bool = true;
+        if (numslide < 4) {
+            $('.slick-slider .slide').clone().appendTo($('.slick-slider'));
+            bool = false;
+        }
         $('.slick-slider').slick({
+            arrows: bool,
             centerMode: true,
             //            centerPadding: '40px',
             slidesToShow: 3,
-            autoplay: true,
+            //                autoplay: true,
             responsive: [
-        {
-            breakpoint: 768,
-            settings: {
-                arrows: false,
-                centerMode: true,
-                centerPadding: '20px',
-                slidesToShow: 3
-            }
-        },
-        {
-            breakpoint: 480,
-            settings: {
-                arrows: false,
-                centerMode: true,
-                centerPadding: '20px',
-                slidesToShow: 1
-            }
-        }]
+                {
+                    breakpoint: 768,
+                    settings: {
+                        arrows: bool,
+                        centerMode: true,
+                        centerPadding: '20px',
+                        slidesToShow: 3
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        arrows: bool,
+                        centerMode: true,
+                        centerPadding: '20px',
+                        slidesToShow: 1
+                    }
+                }]
         });
     });
     $(function () {
@@ -50,10 +56,10 @@
             } else {
                 $(idlogin).slideUp();
             }
-            $("#login").mouseleave(function () {
-                $(".login-link").removeClass("current");
-                $("#login").fadeOut();
-            });
+//            $("#login").mouseleave(function () {
+//                $(".login-link").removeClass("current");
+//                $("#login").fadeOut();
+//            });
             return false;
         });
         function runEffect() {
@@ -212,8 +218,10 @@
         var topsroll = $(window).scrollTop();
         if (topsroll > 100) {
             $("#sroltop").stop(true, true).animate({ "opacity": 0.5 }, 500);
+            $("#wrapper #footer").addClass("position-relative");
         } else {
             $("#sroltop").stop(true, true).animate({ "opacity": 0 }, 500);
+            $("#wrapper #footer").removeClass("position-relative");
         }
     }
 })(jQuery);

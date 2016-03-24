@@ -63,7 +63,7 @@
                             <div class="box-in">
                                 <div class="boxa">
                                     <a href='<%# progressTitle(Eval("ProjectTitleEn")) + "-pri-" + Eval("ProjectID") + ".aspx" %>' class="box-img">
-                                        <img id="Img1" alt='<%# Eval("ImageName") %>' src='<%# !string.IsNullOrEmpty(Eval("ImageName").ToString()) ? "~/res/article/" + Eval("ImageName") : "~/assets/img-about-1.jpg" %>'
+                                        <img id="Img1" alt='<%# Eval("ImageName") %>' src='<%# !string.IsNullOrEmpty(Eval("ImageName").ToString()) ? "~/res/project/" + Eval("ImageName") : "~/assets/img-about-1.jpg" %>'
                                             runat="server" />
                                     </a>
                                     <h5 class="box-name">

@@ -39,10 +39,14 @@
         function changeActiveMenu(page) {
             $('#menu li').removeClass("active");
             $('#menu li a[href*="' + page + '"]').parent("li").addClass("active");
+            $('.navbar-nav li').removeClass("active");
+            $('.navbar-nav li a[href$="' + page + '"]').parent("li").addClass("active");
         }
         function changeSubActiveMenu(page) {
             $('#menu li li').removeClass("active");
             $('#menu li li a[href$="' + page + '"]').closest("li").addClass("active");
+            $('.navbar-nav li li').removeClass("active");
+            $('.navbar-nav li li a[href$="' + page + '"]').closest("li").addClass("active");
         }
     </script>
 </head>
@@ -128,16 +132,20 @@
                                             Display="Dynamic" ValidationGroup="SendContact" ControlToValidate="txtContent"
                                             ErrorMessage="Thông tin bắt buộc!" ForeColor="Red"></asp:RequiredFieldValidator>
                                     </div>
-                                    <div class="login-input">
-                                        <asp:RadCaptcha ID="RadCaptcha1" ValidatedTextBoxID="txtSecurityCode" ValidationGroup="RegisterForm"
+                                    <%--<div class="login-input">
+                                        <asp:TextBox ID="txtSecurityCode" CssClass="login-text" runat="server"></asp:TextBox>
+                                        <asp:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender1" runat="server" Enabled="True"
+                                            WatermarkText="Mã" TargetControlID="txtSecurityCode">
+                                        </asp:TextBoxWatermarkExtender>
+                                        <asp:RadCaptcha ID="RadCaptcha1" ValidatedTextBoxID="txtSecurityCode" ValidationGroup="SendContact"
                                             runat="server" Display="Dynamic" ErrorMessage="Mã xác nhận: không chính xác."
                                             CaptchaLinkButtonText="Refesh" CssClass="capcha" EnableRefreshImage="True">
                                             <CaptchaImage RenderImageOnly="True" Width="125" Height="35" BackgroundNoise="High"
                                                 BackgroundColor="White" TextColor="Black" FontFamily="Tohoma" TextLength="5" />
                                         </asp:RadCaptcha>
-                                    </div>
+                                    </div>--%>
                                     <div class="login-input">
-                                        <asp:Button ID="btnSend" CssClass="btn-a" runat="server" Text="Gửi" ValidationGroup="SendContact" />
+                                        <asp:Button ID="btnSend" CssClass="btn-a" runat="server" Text="Gửi" ValidationGroup="SendContact" OnClick="btnSend_Click" />
                                         <asp:Label runat="server" ID="lblMessage" ForeColor="red"></asp:Label>
                                     </div>
                                 </div>
@@ -148,7 +156,7 @@
                     </div>
                 </div>
                 <div id="header-menu">
-                    <div class="button-menu mobile-showhide">
+                    <%--<div class="button-menu mobile-showhide">
                         <a class="panel-left" href="#menuContent"><span class="icon-bar">bar</span> <span
                             class="icon-bar">bar</span> <span class="icon-bar">bar</span> </a>
                     </div>
@@ -168,26 +176,6 @@
                                         </ul>
                                     </LayoutTemplate>
                                 </asp:ListView>
-                                <asp:ObjectDataSource ID="odsAbout" runat="server" SelectMethod="ArticleSelectAll"
-                                    TypeName="TLLib.Article">
-                                    <SelectParameters>
-                                        <asp:Parameter Name="StartRowIndex" Type="String" />
-                                        <asp:Parameter Name="EndRowIndex" Type="String" />
-                                        <asp:Parameter Name="Keyword" Type="String" />
-                                        <asp:Parameter Name="ArticleTitle" Type="String" />
-                                        <asp:Parameter Name="Description" Type="String" />
-                                        <asp:Parameter Name="ArticleCategoryID" Type="String" />
-                                        <asp:Parameter Name="Tag" Type="String" />
-                                        <asp:Parameter Name="IsShowOnHomePage" Type="String" />
-                                        <asp:Parameter Name="IsHot" Type="String" />
-                                        <asp:Parameter Name="IsNew" Type="String" />
-                                        <asp:Parameter Name="FromDate" Type="String" />
-                                        <asp:Parameter Name="ToDate" Type="String" />
-                                        <asp:Parameter DefaultValue="True" Name="IsAvailable" Type="String" />
-                                        <asp:Parameter Name="Priority" Type="String" />
-                                        <asp:Parameter DefaultValue="True" Name="SortByPriority" Type="String" />
-                                    </SelectParameters>
-                                </asp:ObjectDataSource>
                             </li>
                             <li><a href="project.aspx">Dự án</a>
                                 <asp:ListView ID="lstProjectCategory" runat="server" DataSourceID="odsProjectCategory"
@@ -197,12 +185,12 @@
                                             <span class="icon-menucontent glyphicon glyphicon-chevron-right"></span>
                                             <%# Eval("ProjectCategoryName")%></a>
                                             <asp:HiddenField ID="hdnProjectCategoryID" runat="server" Value='<%# Eval("ProjectCategoryID") %>' />
-                                            <asp:ListView ID="lstProjectMobile" runat="server" DataSourceID="odsProject"
-                                                EnableModelValidation="True">
+                                            <asp:ListView ID="lstProjectMobile" runat="server" DataSourceID="odsProject" EnableModelValidation="True">
                                                 <ItemTemplate>
                                                     <li><a href='<%# progressTitle(Eval("ProjectTitle")) + "-pri-" + Eval("ProjectID") + ".aspx" %>'
                                                         class="corner">
-                                                        <%# Eval("ProjectTitle")%><span class="icona-left glyphicon glyphicon-plus"></span></a> </li>
+                                                        <%# Eval("ProjectTitle")%><span class="icona-left glyphicon glyphicon-plus"></span></a>
+                                                    </li>
                                                 </ItemTemplate>
                                                 <LayoutTemplate>
                                                     <ul>
@@ -237,21 +225,95 @@
                                         </ul>
                                     </LayoutTemplate>
                                 </asp:ListView>
-                                <asp:ObjectDataSource ID="odsProjectCategory" runat="server" SelectMethod="ProjectCategorySelectAll"
-                                    TypeName="TLLib.ProjectCategory">
-                                    <SelectParameters>
-                                        <asp:Parameter Name="parentID" Type="Int32" DefaultValue="0" />
-                                        <asp:Parameter Name="increaseLevelCount" Type="Int32" DefaultValue="1" />
-                                        <asp:Parameter Name="IsShowOnMenu" Type="String" />
-                                        <asp:Parameter Name="IsShowOnHomePage" Type="String" />
-                                    </SelectParameters>
-                                </asp:ObjectDataSource>
                             </li>
                         </ul>
                     </div>
                     <div id="hotline-mo" class="mobile-showhide">
                         <span>Hotline <strong>0931 101 116</strong></span>
-                    </div>
+                    </div>--%>
+                    <nav class="navbar navbar-default navbar-static-top mobile-showhide">
+                        <div class="container">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <div class="navbar-brand"><span>Hotline <strong>0931 101 116</strong></span></div>
+                            </div>
+                            <div id="navbar" class="navbar-collapse collapse">
+                                <ul class="nav navbar-nav">
+                                    <li class="active"><a href="~/" runat="server">Trang chủ</a></li>
+                                    <li class="dropdown">
+                                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Giới thiệu <span class="caret"></span></a>
+                                        <asp:ListView ID="ListView1" runat="server" DataSourceID="odsAbout" EnableModelValidation="True">
+                                            <ItemTemplate>
+                                                <li><a href='<%# progressTitle(Eval("ArticleTitle")) + "-tt-" + Eval("ArticleID") + ".aspx" %>'>
+                                                    <%# Eval("ArticleTitle")%></a></li>
+                                            </ItemTemplate>
+                                            <LayoutTemplate>
+                                                <ul class="dropdown-menu">
+                                                    <li runat="server" id="itemPlaceholder"></li>
+                                                </ul>
+                                            </LayoutTemplate>
+                                        </asp:ListView>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="project.aspx" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dự án <span class="caret"></span></a>
+                                        <asp:ListView ID="lstProjectCategory" runat="server" DataSourceID="odsProjectCategory"
+                                            EnableModelValidation="True">
+                                            <ItemTemplate>
+                                            <li><%--<a href='<%# progressTitle(Eval("ProjectCategoryName")) + "-pci-" + Eval("ProjectCategoryID") + ".aspx" %>'>
+                                                <%# Eval("ProjectCategoryName")%></a>--%>
+                                                <a href="javascript:void(0);">
+                                                <%# Eval("ProjectCategoryName")%></a>
+                                                <asp:HiddenField ID="hdnProjectCategoryID" runat="server" Value='<%# Eval("ProjectCategoryID") %>' />
+                                                <asp:ListView ID="lstProjectMobile" runat="server" DataSourceID="odsProject" EnableModelValidation="True">
+                                                    <ItemTemplate>
+                                                        <li><a href='<%# progressTitle(Eval("ProjectTitle")) + "-pri-" + Eval("ProjectID") + ".aspx" %>'
+                                                            class="corner">
+                                                            <%# Eval("ProjectTitle")%></a>
+                                                        </li>
+                                                    </ItemTemplate>
+                                                    <LayoutTemplate>
+                                                        <ul>
+                                                            <li runat="server" id="itemPlaceholder"></li>
+                                                        </ul>
+                                                    </LayoutTemplate>
+                                                </asp:ListView>
+                                                <asp:ObjectDataSource ID="odsProject" runat="server" SelectMethod="ProjectSelectAll"
+                                                TypeName="TLLib.Project">
+                                                <SelectParameters>
+                                                    <asp:Parameter Name="StartRowIndex" Type="String" />
+                                                    <asp:Parameter Name="EndRowIndex" Type="String" />
+                                                    <asp:Parameter Name="Keyword" Type="String" />
+                                                    <asp:Parameter Name="ProjectTitle" Type="String" />
+                                                    <asp:Parameter Name="Description" Type="String" />
+                                                    <asp:ControlParameter ControlID="hdnProjectCategoryID" DefaultValue="" Name="ProjectCategoryID"
+                                                        PropertyName="Value" Type="String" />
+                                                    <asp:Parameter Name="Tag" Type="String" />
+                                                    <asp:Parameter Name="IsShowOnHomePage" Type="String" />
+                                                    <asp:Parameter Name="FromDate" Type="String" />
+                                                    <asp:Parameter Name="ToDate" Type="String" />
+                                                    <asp:Parameter DefaultValue="True" Name="IsAvailable" Type="String" />
+                                                    <asp:Parameter Name="Priority" Type="String" />
+                                                    <asp:Parameter DefaultValue="True" Name="SortByPriority" Type="String" />
+                                                </SelectParameters>
+                                            </asp:ObjectDataSource>
+                                            </li>
+                                            </ItemTemplate>
+                                            <LayoutTemplate>
+                                                <ul class="dropdown-menu">
+                                                    <li runat="server" id="itemPlaceholder"></li>
+                                                </ul>
+                                            </LayoutTemplate>
+                                        </asp:ListView>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
                     <ul id="menu" class="desktop-show">
                         <li class="active"><a href="~/" class="corner" runat="server">Trang chủ</a></li>
                         <li><a href="javascript:void(0);" class="corner">Giới thiệu<span class="icona-right glyphicon glyphicon-chevron-right"></span></a>
@@ -272,7 +334,10 @@
                             <asp:ListView ID="lstProjectCategoryMobile" runat="server" DataSourceID="odsProjectCategory"
                                 EnableModelValidation="True">
                                 <ItemTemplate>
-                                    <li><a href='<%# progressTitle(Eval("ProjectCategoryName")) + "-pci-" + Eval("ProjectCategoryID") + ".aspx" %>'
+                                    <li><%--<a href='<%# progressTitle(Eval("ProjectCategoryName")) + "-pci-" + Eval("ProjectCategoryID") + ".aspx" %>'
+                                        class="corner">
+                                        <%# Eval("ProjectCategoryName")%></a>--%>
+                                        <a href="javascript:void(0);"
                                         class="corner">
                                         <%# Eval("ProjectCategoryName")%></a>
                                         <asp:HiddenField ID="hdnProjectCategoryID" runat="server" Value='<%# Eval("ProjectCategoryID") %>' />
@@ -318,6 +383,35 @@
                             </asp:ListView>
                         </li>
                     </ul>
+                    <asp:ObjectDataSource ID="odsAbout" runat="server" SelectMethod="ArticleSelectAll"
+                        TypeName="TLLib.Article">
+                        <SelectParameters>
+                            <asp:Parameter Name="StartRowIndex" Type="String" />
+                            <asp:Parameter Name="EndRowIndex" Type="String" />
+                            <asp:Parameter Name="Keyword" Type="String" />
+                            <asp:Parameter Name="ArticleTitle" Type="String" />
+                            <asp:Parameter Name="Description" Type="String" />
+                            <asp:Parameter Name="ArticleCategoryID" Type="String" />
+                            <asp:Parameter Name="Tag" Type="String" />
+                            <asp:Parameter Name="IsShowOnHomePage" Type="String" />
+                            <asp:Parameter Name="IsHot" Type="String" />
+                            <asp:Parameter Name="IsNew" Type="String" />
+                            <asp:Parameter Name="FromDate" Type="String" />
+                            <asp:Parameter Name="ToDate" Type="String" />
+                            <asp:Parameter DefaultValue="True" Name="IsAvailable" Type="String" />
+                            <asp:Parameter Name="Priority" Type="String" />
+                            <asp:Parameter DefaultValue="True" Name="SortByPriority" Type="String" />
+                        </SelectParameters>
+                    </asp:ObjectDataSource>
+                    <asp:ObjectDataSource ID="odsProjectCategory" runat="server" SelectMethod="ProjectCategorySelectAll"
+                        TypeName="TLLib.ProjectCategory">
+                        <SelectParameters>
+                            <asp:Parameter Name="parentID" Type="Int32" DefaultValue="0" />
+                            <asp:Parameter Name="increaseLevelCount" Type="Int32" DefaultValue="1" />
+                            <asp:Parameter Name="IsShowOnMenu" Type="String" />
+                            <asp:Parameter Name="IsShowOnHomePage" Type="String" />
+                        </SelectParameters>
+                    </asp:ObjectDataSource>
                     <div class="clr">
                     </div>
                 </div>
@@ -351,8 +445,8 @@
                     <div class="footer-box">
                         <div class="share-fa">
                             Follow us on <a href="#">
-                                <img src="assets/images/fbox-4.png" alt="" /></a><a href="#"><img src="assets/images/fbox-3.png"
-                                    alt="" /></a><a href="#"><img src="assets/images/fbox-2.png" alt="" /></a><a href="#"><img
+                                <img src="assets/images/fbox-4.png" alt="" /></a><a href="mailTo:kimhoang@greenhillcorp.com"><img src="assets/images/fbox-3.png"
+                                    alt="" /></a><a href="#"><img src="assets/images/fbox-2.png" alt="" /></a><a href="https://www.facebook.com/VinHomes-Golden-River-207329649628121/"><img
                                         src="assets/images/fbox-1.png" alt="" /></a></div>
                         <div class="online">
                             Đang online: <strong>
@@ -388,6 +482,14 @@
     <script src="assets/js/jquery.panel.mobile.js" type="text/javascript"></script>
     <!--script banner-->
     <script src="assets/js/jquery.nivo.slider.pack.js" type="text/javascript"></script>
+    <script lang="javascript">
+        (function () {
+            var _h1 = document.getElementsByTagName('title')[0] || false;
+            var product_name = ''; if (_h1) { product_name = _h1.textContent || _h1.innerText; } var ga = document.createElement('script'); ga.type = 'text/javascript';
+            ga.src = '//live.vnpgroup.net/js/web_client_box.php?hash=fc5abf9789c24c5997ef5ac22267a17a&data=eyJzc29faWQiOjM2Njk1OTYsImhhc2giOiI0ZDg3NTJhMzUxODIzYTI4OTQzNmY1ZmRiMGIyYWQ1YiJ9&pname=' + product_name;
+            var s = document.getElementsByTagName('script'); s[0].parentNode.insertBefore(ga, s[0]);
+        })();
+    </script>
     </form>
 </body>
 </html>

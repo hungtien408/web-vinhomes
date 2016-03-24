@@ -10,7 +10,7 @@
         <div class="slick-slider">
             <asp:ListView ID="lstProject" runat="server" DataSourceID="odsProject" EnableModelValidation="True">
                 <ItemTemplate>
-                    <div class="slick-slide">
+                    <div class="slide">
                         <div class="box-pro">
                             <a href='<%# progressTitle(Eval("ProjectTitle")) + "-pri-" + Eval("ProjectID") + ".aspx" %>' class="pro-img">
                                 <img id="Img1" alt='<%# Eval("ImageName") %>' src='<%# !string.IsNullOrEmpty(Eval("ImageName").ToString()) ? "~/res/project/" + Eval("ImageName") : "~/assets/images/img-pro-1.png" %>' runat="server" /></a>
