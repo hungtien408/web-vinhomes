@@ -15,7 +15,7 @@
             centerMode: true,
             //            centerPadding: '40px',
             slidesToShow: 3,
-            //                autoplay: true,
+            autoplay: true,
             responsive: [
                 {
                     breakpoint: 768,
