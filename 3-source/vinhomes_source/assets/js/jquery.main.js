@@ -204,8 +204,12 @@
     function srollmenu(htop) {
         if ($(window).scrollTop() > htop) {
             $("#header-menu").addClass("header-sroll");
+            $("#hotline").addClass("hotlineroll");
+            $(".contactus").addClass("contactusroll");
         } else {
             $("#header-menu").removeClass("header-sroll");
+            $("#hotline").removeClass("hotlineroll");
+            $(".contactus").removeClass("contactusroll");
         }
     }
     function mysroll() {
