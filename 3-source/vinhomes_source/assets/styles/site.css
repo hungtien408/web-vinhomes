@@ -1087,8 +1087,6 @@ body
 }
 .listAside .boxa {
     border: 1px solid #fff;
-    margin-left: -1px;
-    margin-top: -1px;
     margin-bottom: 12px;
     position: relative;
     z-index: 2;
@@ -1182,7 +1180,7 @@ body
 .title-about {
     color: #00006b;
     font-size: 36px;
-    line-height: 30px;
+    line-height: 40px;
     margin: 0 0 30px;
     font-family: "Roboto" ,sans-serif;
 }
@@ -1190,12 +1188,24 @@ body
     width: 100%;
     margin-bottom: 15px;
     text-align: justify;
+    overflow: hidden;
+}
+.wrapper-text > span {
+    display: block;
+    overflow: hidden;
+    width: 100% !important;
 }
 .wrapper-text img {
     display: block;
     max-width: 100%;
     height: auto;
     margin: 0 auto;
+}
+.wrapper-text * {
+    width: auto !important;
+}
+.wrapper-text .table-responsive, .wrapper-text .table-responsive>.table {
+    width: 100% !important;
 }
 /*====project====*/
 .wrapper-project {
@@ -1494,7 +1504,7 @@ body .mobilep-right {
     
     #header .header-right 
     {
-        width: 80px;
+        /*width: 80px;*/
         position: absolute;
         right: 0;
         top: 0;
@@ -1667,6 +1677,9 @@ body .mobilep-right {
     .slick-arrow {
         display: none !important;
     }
+    .wrapper-text div {
+        float: none !important;
+    }
 }
 @media (min-width: 481px) and (max-width: 767px)
 {
@@ -1777,11 +1790,12 @@ body .mobilep-right {
         -moz-border-radius: 8px;
         -webkit-border-radius: 8px;
     }
-    .listAside .box-in {
+    /*.listAside .box-in {
         width: 80%;
         float: none;
         margin: 0 auto;
-    }
+        position: relative;
+    }*/
     .project-tb .col-xs-4{
         width: 100%;
     }

@@ -56,11 +56,11 @@
                 </asp:ContentPlaceHolder>
             </div>
             <div id="mobileAside">
-                <div class="listAside">
+                <div class="listAside isolist">
                     <asp:ListView ID="lstProjectMobile" runat="server" DataSourceID="odsProject"
                         EnableModelValidation="True">
                         <ItemTemplate>
-                            <div class="box-in">
+                            <div class="box-in element-item">
                                 <div class="boxa">
                                     <a href='<%# progressTitle(Eval("ProjectTitle")) + "-pri-" + Eval("ProjectID") + ".aspx" %>' class="box-img">
                                         <img id="Img1" alt='<%# Eval("ImageName") %>' src='<%# !string.IsNullOrEmpty(Eval("ImageName").ToString()) ? "~/res/project/" + Eval("ImageName") : "~/assets/images/img-about-1.jpg" %>'
