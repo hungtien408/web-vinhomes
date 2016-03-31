@@ -80,7 +80,7 @@
                             <div class="contactus contactdesk">
                                 <a class="link-a login-link desktop-showhide" href="#login">Liên hệ với chúng tôi<span
                                     class="icona-right glyphicon glyphicon-chevron-right"></span></a>
-                                <div id="login">
+                                <div id="login" class="desktop-show">
                                     <div class="login-input">
                                         <asp:TextBox ID="txtFullName" CssClass="login-text" runat="server"></asp:TextBox>
                                         <asp:TextBoxWatermarkExtender ID="txtFullName_WatermarkExtender" runat="server" Enabled="True"
@@ -369,7 +369,7 @@
                             </div>
                             <div class="login-input">
                                 <asp:Button ID="btnSend2" CssClass="btn-a" runat="server" Text="Gửi" ValidationGroup="SendContact2"
-                                    OnClick="btnSend_Click" />
+                                    OnClick="btnSend2_Click" />
                                 <asp:Label runat="server" ID="Label1" ForeColor="red"></asp:Label>
                             </div>
                         </div>

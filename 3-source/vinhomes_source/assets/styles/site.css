@@ -1634,7 +1634,7 @@ body .mobilep-right {
         display: block !important;
     }
     .desktop-show {
-        display: none;
+        display: none !important;
     }
     #header-menu
     {

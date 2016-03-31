@@ -49,6 +49,16 @@ public partial class site : System.Web.UI.MasterPage
         msg += "<b>Nội dung: </b>" + txtContent.Text.Trim().ToString();
         Common.SendMail("smtp.gmail.com", 587, "vinhomesgolden01@gmail.com", "vinhome123456", "kimhoangf1@gmail.com", "", "CONTACT VINHOMES GOLDEN RIVER", msg, true);
     }
+    private void sendEmail2()
+    {
+        string msg = "<h3>VINHOMES GOLDEN RIVER: CONTACT</h3><br/>";
+        msg += "<b>Họ tên: </b>" + txtFullName2.Text.Trim().ToString() + "<br />";
+        msg += "<b>Email: </b>" + txtEmail2.Text.Trim().ToString() + "<br />";
+        msg += "<b>Điện thoại: </b>" + txtPhone2.Text.Trim().ToString() + "<br />";
+        msg += "<b>Địa chỉ: </b>" + txtAddress2.Text.Trim().ToString() + "<br />";
+        msg += "<b>Nội dung: </b>" + txtContent2.Text.Trim().ToString();
+        Common.SendMail("smtp.gmail.com", 587, "vinhomesgolden01@gmail.com", "vinhome123456", "kimhoangf1@gmail.com", "", "CONTACT VINHOMES GOLDEN RIVER", msg, true);
+    }
     protected void btnSend_Click(object sender, EventArgs e)
     {
         if (Page.IsValid)
@@ -70,6 +80,35 @@ public partial class site : System.Web.UI.MasterPage
                 txtPhone.Text = "";
                 txtAddress.Text = "";
                 txtContent.Text = "";
+            //}
+            //else
+            //{
+            //    lblMessage.Text = "Chuỗi xác nhận chưa đúng !";
+            //    ScriptManager.RegisterClientScriptBlock(Page, Page.GetType(), "runtime", " $(document).ready(function () {alert('Chuỗi xác nhận chưa đúng !')});", true);
+            //}
+        }
+    }
+    protected void btnSend2_Click(object sender, EventArgs e)
+    {
+        if (Page.IsValid)
+        {
+            //if (RadCaptcha1.IsValid)
+            //{
+
+            //send email         
+            sendEmail2();
+            lblMessage.Text = "Cám ơn bạn đã liên lạc với chúng tôi. Thông báo của bạn đã được gửi đi. Chúng tôi sẽ liên lạc với bạn trong thời gian sớm nhất!";
+            ScriptManager.RegisterClientScriptBlock(Page, Page.GetType(), "runtime", " $(document).ready(function () {alert('Cám ơn bạn đã liên lạc với chúng tôi. Thông báo của bạn đã được gửi đi. Chúng tôi sẽ liên lạc với bạn trong thời gian sớm nhất!')});", true);
+            lblMessage.Visible = true;
+            lblMessage.Text = "";
+            //
+            //Clear text
+            //
+            txtFullName.Text = "";
+            txtEmail.Text = "";
+            txtPhone.Text = "";
+            txtAddress.Text = "";
+            txtContent.Text = "";
             //}
             //else
             //{
