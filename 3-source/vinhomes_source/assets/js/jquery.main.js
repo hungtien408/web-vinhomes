@@ -35,13 +35,52 @@
                         slidesToShow: 1
                     }
                 }]
-        });
+            });
+            //banner
+            if ($("#bannerSlider").size() == 1) {
+                bannerbox();
+                $(window).resize(function () {
+                    bannerbox();
+                });
+                $("#bannerSlider li").each(function () {
+                    var srcimg = $(this).find(".banner-img").attr("rel-src");
+                    $(this).find(".banner-img").backstretch(srcimg);
+                });
+                $("#wrapper").append('<div id="banner-control"><span class="slider-prev control-b"></span><span class="slider-next control-b"></span></div>');
+                var banner = $('#bannerSlider').bxSlider({
+                    mode: 'fade',
+                    pager: false,
+                    auto: true
+                });
+                $("#banner-control .control-b").click(function () {
+                    banner.startAuto();
+                });
+                //function banner
+                function bannerbox() {
+                    var hwin = $(window).height();
+                    var wwin = $(window).width();
+                    if (wwin > 979) {
+                        $("#bannerSlider .banner-img").css({ "height": hwin, "width": wwin });
+                    } else if (wwin > 768 && wwin < 980) {
+                        $("#bannerSlider .banner-img").css({ "height": hwin, "width": wwin });
+                    } else {
+                        $("#bannerSlider .banner-img").css({ "height": hwin, "width": wwin });
+                    }
+                }
+            }
     });
     $(function () {
         $("#menuContent").mouseleave(function () {
             $(".panel-left").removeClass("current");
             $("#menuContent").delay(3000).fadeOut();
         });
+        if ($("#bannerBg").size() == 1) {
+            var imgsrc = $("#bannerBg").attr("rel-src");
+            $.backstretch(imgsrc);
+            var textie = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + imgsrc + "',sizingMethod='scale')";
+            var textie2 = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + imgsrc + "',sizingMethod='scale')";
+            $("body").css({ "background-image": "url(" + imgsrc + ")", "filter": textie, "-ms-filter": textie2 });
+        }
         mymenudes();
         menusroll();
         $("#sroltop a").click(function () {
@@ -131,6 +170,7 @@
             //$('.wrapper-all').show();
             //$("#wrapper").append('<div id="mask-bg"></div>');
             $(".mainbg").addClass("bgfilter");
+            $("#banner").addClass("bgfilter");
             $(".wrapper-project").addClass("bgfilter");
             $(".wrapper-about").addClass("bgfilter");
             $(".wrapper-slider").addClass("bgfilter");
@@ -141,12 +181,14 @@
         $("#menu > li").mouseleave(function () {
             //$("#mask-bg").remove();
             $(".mainbg").removeClass("bgfilter");
+            $("#banner").removeClass("bgfilter");
             $(".wrapper-project").removeClass("bgfilter");
             $(".wrapper-about").removeClass("bgfilter");
             $(".wrapper-slider").removeClass("bgfilter");
         });
         $("#menul2 li").hover(function () {
             $(".mainbg").addClass("bgfilter");
+            $("#banner").addClass("bgfilter");
             $(".wrapper-project").addClass("bgfilter");
             $(".wrapper-about").addClass("bgfilter");
             $(".wrapper-slider").addClass("bgfilter");
@@ -157,6 +199,7 @@
         $("#menul2 > li").mouseleave(function () {
             //$("#mask-bg").remove();
             $(".mainbg").removeClass("bgfilter");
+            $("#banner").removeClass("bgfilter");
             $(".wrapper-project").removeClass("bgfilter");
             $(".wrapper-about").removeClass("bgfilter");
             $(".wrapper-slider").removeClass("bgfilter");
@@ -170,6 +213,7 @@
                 $(this).removeClass("bgfilter");
             }
             $(".mainbg").addClass("bgfilter");
+            $("#banner").addClass("bgfilter");
             $(".wrapper-about").addClass("bgfilter");
             $(".wrapper-slider").addClass("bgfilter");
 
@@ -179,6 +223,7 @@
                 $(this).removeClass("bgfilter");
             });
             $(".mainbg").removeClass("bgfilter");
+            $("#banner").removeClass("bgfilter");
             $(".wrapper-project").removeClass("bgfilter");
             $(".wrapper-about").removeClass("bgfilter");
             $(".wrapper-slider").removeClass("bgfilter");

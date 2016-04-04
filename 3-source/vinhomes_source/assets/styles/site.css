@@ -49,7 +49,7 @@ body
     
 }
 .mainbg {
-    background-image: url('../images/bg-body.jpg');
+    /*background-image: url('../images/bg-body.jpg');*/
     background-repeat: no-repeat;
     background-position: top center;
     background-size: cover;
@@ -1062,6 +1062,22 @@ body
 }
 .pro-name a:hover {
     text-decoration: none;
+}
+/*====banner====*/
+#banner {
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 0;
+}
+#banner ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 /*=======col aside====*/
 .wrapper-about, .wrapper-project {

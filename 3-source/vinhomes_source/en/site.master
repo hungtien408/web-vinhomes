@@ -11,9 +11,12 @@
     <link rel="shortcut icon" type="image/ico" href="favicon.ico" />
     <link href="../assets/styles/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="../assets/styles/nivo-slider.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/styles/jquery.bxslider.css" rel="stylesheet" type="text/css" />
     <link href="../assets/styles/slick.css" rel="stylesheet" type="text/css" />
     <link href="../assets/styles/site.css" rel="stylesheet" type="text/css" />
     <script src="../assets/js/jquery.js" type="text/javascript"></script>
+    <script src="../assets/js/jquery.backstretch.min.js" type="text/javascript"></script>
+    <script src="../assets/js/jquery.bxslider.min.js" type="text/javascript"></script>
     <script src="../assets/js/slick.min.js" type="text/javascript"></script>
     <script src="../assets/js/jquery.textheight.js" type="text/javascript"></script>
     <script src="../assets/js/jquery.main.js" type="text/javascript"></script>
@@ -48,6 +51,14 @@
             $('.navbar-nav li li').removeClass("active");
             $('.navbar-nav li li a[href$="' + page + '"]').closest("li").addClass("active");
         }
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if ($("#bgmain").size() == 1) {
+                var bgm = $("#bgmain").attr("data-img");
+                $("#bgmain").css('background-image', 'url("' + bgm + '")');
+            }
+        });
     </script>
 </head>
 <body>
@@ -531,8 +542,47 @@
         <asp:ContentPlaceHolder ID="cphBottom" runat="server">
         </asp:ContentPlaceHolder>
     </div>
-    <div class="mainbg">
-    </div>
+    <%--<div class="mainbg">
+    </div>--%>
+    <%--<asp:ListView ID="lstBackground" runat="server" DataSourceID="odsBackground" EnableModelValidation="True">
+        <ItemTemplate>
+            <div id="bgmain" class="mainbg" data-img='<%# !string.IsNullOrEmpty(Eval("FileName").ToString()) ? "../res/advertisement/" + Eval("FileName") : "~/assets/images/bg-body.jpg" %>'>
+            </div>
+        </ItemTemplate>
+        <LayoutTemplate>
+            <span runat="server" id="itemPlaceholder" />
+        </LayoutTemplate>
+    </asp:ListView>--%>
+    <asp:ListView ID="lstBackground" runat="server" DataSourceID="odsBackground" EnableModelValidation="True">
+        <ItemTemplate>
+            <li>
+                <div class="banner-img" rel-src='<%# !string.IsNullOrEmpty(Eval("FileName").ToString()) ? "../res/advertisement/" + Eval("FileName") : "~/assets/images/bg-body.jpg" %>'>
+                </div>
+            </li>
+        </ItemTemplate>
+        <LayoutTemplate>
+            <div id="banner">
+                <ul id="bannerSlider">
+                    <li runat="server" id="itemPlaceholder"></li>
+                </ul>
+            </div>
+        </LayoutTemplate>
+    </asp:ListView>
+    <asp:ObjectDataSource ID="odsBackground" runat="server" 
+        SelectMethod="AdsBannerSelectAll" TypeName="TLLib.AdsBanner">
+        <SelectParameters>
+            <asp:Parameter Name="StartRowIndex" Type="String" />
+            <asp:Parameter Name="EndRowIndex" Type="String" />
+            <asp:Parameter DefaultValue="5" Name="AdsCategoryID" Type="String" />
+            <asp:Parameter Name="CompanyName" Type="String" />
+            <asp:Parameter Name="Website" Type="String" />
+            <asp:Parameter Name="FromDate" Type="String" />
+            <asp:Parameter DefaultValue="" Name="ToDate" Type="String" />
+            <asp:Parameter DefaultValue="True" Name="IsAvailable" Type="String" />
+            <asp:Parameter Name="Priority" Type="String" />
+            <asp:Parameter DefaultValue="True" Name="SortByPriority" Type="String" />
+        </SelectParameters>
+    </asp:ObjectDataSource>
     <div id="sroltop">
         <a class="corner" href="javascript:void(0);"><span class="glyphicon glyphicon-chevron-up">
         </span></a>

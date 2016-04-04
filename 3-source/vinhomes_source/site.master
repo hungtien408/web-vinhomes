@@ -11,9 +11,12 @@
     <link rel="shortcut icon" type="image/ico" href="favicon.ico" />
     <link href="assets/styles/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="assets/styles/nivo-slider.css" rel="stylesheet" type="text/css" />
+    <link href="assets/styles/jquery.bxslider.css" rel="stylesheet" type="text/css" />
     <link href="assets/styles/slick.css" rel="stylesheet" type="text/css" />
     <link href="assets/styles/site.css" rel="stylesheet" type="text/css" />
     <script src="assets/js/jquery.js" type="text/javascript"></script>
+    <script src="assets/js/jquery.backstretch.min.js" type="text/javascript"></script>
+    <script src="assets/js/jquery.bxslider.min.js" type="text/javascript"></script>
     <script src="assets/js/slick.min.js" type="text/javascript"></script>
     <script src="assets/js/jquery.textheight.js" type="text/javascript"></script>
     <script src="assets/js/jquery.main.js" type="text/javascript"></script>
@@ -48,6 +51,14 @@
             $('.navbar-nav li li').removeClass("active");
             $('.navbar-nav li li a[href$="' + page + '"]').closest("li").addClass("active");
         }
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if ($("#bgmain").size() == 1) {
+                var bgm = $("#bgmain").attr("data-img");
+                $("#bgmain").css('background-image', 'url("' + bgm + '")');
+            }
+        });
     </script>
 </head>
 <body>
@@ -315,64 +326,64 @@
                         </div>
                         </nav>
                         <div class="contactus contactmo mobile-showhide">
-                        <a class="link-a login-link mobile-showhide" href="#login2">Liên hệ với chúng tôi<span
-                            class="icona-right glyphicon glyphicon-chevron-right"></span></a>
-                        <div id="login2">
-                            <div class="login-input">
-                                <asp:TextBox ID="txtFullName2" CssClass="login-text" runat="server"></asp:TextBox>
-                                <asp:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender1" runat="server" Enabled="True"
-                                    WatermarkText="Họ tên" TargetControlID="txtFullName2">
-                                </asp:TextBoxWatermarkExtender>
-                                <asp:RequiredFieldValidator CssClass="lb-error" ID="RequiredFieldValidator6" runat="server"
-                                    Display="Dynamic" ValidationGroup="SendContact2" ControlToValidate="txtFullName2"
-                                    ErrorMessage="Thông tin bắt buộc!" ForeColor="Red"></asp:RequiredFieldValidator>
+                            <a class="link-a login-link mobile-showhide" href="#login2">Liên hệ với chúng tôi<span
+                                class="icona-right glyphicon glyphicon-chevron-right"></span></a>
+                            <div id="login2">
+                                <div class="login-input">
+                                    <asp:TextBox ID="txtFullName2" CssClass="login-text" runat="server"></asp:TextBox>
+                                    <asp:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender1" runat="server" Enabled="True"
+                                        WatermarkText="Họ tên" TargetControlID="txtFullName2">
+                                    </asp:TextBoxWatermarkExtender>
+                                    <asp:RequiredFieldValidator CssClass="lb-error" ID="RequiredFieldValidator6" runat="server"
+                                        Display="Dynamic" ValidationGroup="SendContact2" ControlToValidate="txtFullName2"
+                                        ErrorMessage="Thông tin bắt buộc!" ForeColor="Red"></asp:RequiredFieldValidator>
+                                </div>
+                                <div class="login-input">
+                                    <asp:TextBox ID="txtEmail2" CssClass="login-text" runat="server"></asp:TextBox>
+                                    <asp:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender2" runat="server" Enabled="True"
+                                        WatermarkText="Email" TargetControlID="txtEmail2">
+                                    </asp:TextBoxWatermarkExtender>
+                                    <asp:RegularExpressionValidator CssClass="lb-error" ID="RegularExpressionValidator2"
+                                        runat="server" ValidationGroup="SendContact2" ControlToValidate="txtEmail2" ErrorMessage="Email không đúng!"
+                                        ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" Display="Dynamic"
+                                        ForeColor="Red"></asp:RegularExpressionValidator>
+                                    <asp:RequiredFieldValidator CssClass="lb-error" ID="RequiredFieldValidator7" runat="server"
+                                        ValidationGroup="SendContact2" ControlToValidate="txtEmail2" ErrorMessage="Thông tin bắt buộc!"
+                                        Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                                </div>
+                                <div class="login-input">
+                                    <asp:TextBox ID="txtPhone2" CssClass="login-text" runat="server"></asp:TextBox>
+                                    <asp:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender3" runat="server" Enabled="True"
+                                        WatermarkText="Điện thoại" TargetControlID="txtPhone2">
+                                    </asp:TextBoxWatermarkExtender>
+                                    <asp:RequiredFieldValidator CssClass="lb-error" ID="RequiredFieldValidator8" runat="server"
+                                        Display="Dynamic" ValidationGroup="SendContact2" ControlToValidate="txtPhone2"
+                                        ErrorMessage="Thông tin bắt buộc!" ForeColor="Red"></asp:RequiredFieldValidator>
+                                </div>
+                                <div class="login-input">
+                                    <asp:TextBox ID="txtAddress2" CssClass="login-text" runat="server"></asp:TextBox>
+                                    <asp:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender4" runat="server" Enabled="True"
+                                        WatermarkText="Địa chỉ" TargetControlID="txtAddress2">
+                                    </asp:TextBoxWatermarkExtender>
+                                    <asp:RequiredFieldValidator CssClass="lb-error" ID="RequiredFieldValidator9" runat="server"
+                                        Display="Dynamic" ValidationGroup="SendContact2" ControlToValidate="txtAddress2"
+                                        ErrorMessage="Thông tin bắt buộc!" ForeColor="Red"></asp:RequiredFieldValidator>
+                                </div>
+                                <div class="login-input">
+                                    <asp:TextBox ID="txtContent2" CssClass="login-text content-area" runat="server" TextMode="MultiLine"></asp:TextBox>
+                                    <asp:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender5" runat="server" Enabled="True"
+                                        WatermarkText="Nội dung" TargetControlID="txtContent2">
+                                    </asp:TextBoxWatermarkExtender>
+                                    <asp:RequiredFieldValidator CssClass="lb-error" ID="RequiredFieldValidator10" runat="server"
+                                        Display="Dynamic" ValidationGroup="SendContact2" ControlToValidate="txtContent2"
+                                        ErrorMessage="Thông tin bắt buộc!" ForeColor="Red"></asp:RequiredFieldValidator>
+                                </div>
+                                <div class="login-input">
+                                    <asp:Button ID="btnSend2" CssClass="btn-a" runat="server" Text="Gửi" ValidationGroup="SendContact2"
+                                        OnClick="btnSend2_Click" />
+                                    <asp:Label runat="server" ID="Label1" ForeColor="red"></asp:Label>
+                                </div>
                             </div>
-                            <div class="login-input">
-                                <asp:TextBox ID="txtEmail2" CssClass="login-text" runat="server"></asp:TextBox>
-                                <asp:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender2" runat="server" Enabled="True"
-                                    WatermarkText="Email" TargetControlID="txtEmail2">
-                                </asp:TextBoxWatermarkExtender>
-                                <asp:RegularExpressionValidator CssClass="lb-error" ID="RegularExpressionValidator2"
-                                    runat="server" ValidationGroup="SendContact2" ControlToValidate="txtEmail2" ErrorMessage="Email không đúng!"
-                                    ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" Display="Dynamic"
-                                    ForeColor="Red"></asp:RegularExpressionValidator>
-                                <asp:RequiredFieldValidator CssClass="lb-error" ID="RequiredFieldValidator7" runat="server"
-                                    ValidationGroup="SendContact2" ControlToValidate="txtEmail2" ErrorMessage="Thông tin bắt buộc!"
-                                    Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
-                            </div>
-                            <div class="login-input">
-                                <asp:TextBox ID="txtPhone2" CssClass="login-text" runat="server"></asp:TextBox>
-                                <asp:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender3" runat="server" Enabled="True"
-                                    WatermarkText="Điện thoại" TargetControlID="txtPhone2">
-                                </asp:TextBoxWatermarkExtender>
-                                <asp:RequiredFieldValidator CssClass="lb-error" ID="RequiredFieldValidator8" runat="server"
-                                    Display="Dynamic" ValidationGroup="SendContact2" ControlToValidate="txtPhone2"
-                                    ErrorMessage="Thông tin bắt buộc!" ForeColor="Red"></asp:RequiredFieldValidator>
-                            </div>
-                            <div class="login-input">
-                                <asp:TextBox ID="txtAddress2" CssClass="login-text" runat="server"></asp:TextBox>
-                                <asp:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender4" runat="server" Enabled="True"
-                                    WatermarkText="Địa chỉ" TargetControlID="txtAddress2">
-                                </asp:TextBoxWatermarkExtender>
-                                <asp:RequiredFieldValidator CssClass="lb-error" ID="RequiredFieldValidator9" runat="server"
-                                    Display="Dynamic" ValidationGroup="SendContact2" ControlToValidate="txtAddress2"
-                                    ErrorMessage="Thông tin bắt buộc!" ForeColor="Red"></asp:RequiredFieldValidator>
-                            </div>
-                            <div class="login-input">
-                                <asp:TextBox ID="txtContent2" CssClass="login-text content-area" runat="server" TextMode="MultiLine"></asp:TextBox>
-                                <asp:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender5" runat="server" Enabled="True"
-                                    WatermarkText="Nội dung" TargetControlID="txtContent2">
-                                </asp:TextBoxWatermarkExtender>
-                                <asp:RequiredFieldValidator CssClass="lb-error" ID="RequiredFieldValidator10" runat="server"
-                                    Display="Dynamic" ValidationGroup="SendContact2" ControlToValidate="txtContent2"
-                                    ErrorMessage="Thông tin bắt buộc!" ForeColor="Red"></asp:RequiredFieldValidator>
-                            </div>
-                            <div class="login-input">
-                                <asp:Button ID="btnSend2" CssClass="btn-a" runat="server" Text="Gửi" ValidationGroup="SendContact2"
-                                    OnClick="btnSend2_Click" />
-                                <asp:Label runat="server" ID="Label1" ForeColor="red"></asp:Label>
-                            </div>
-                        </div>
                         </div>
                     </div>
                     <ul id="menu" class="desktop-show">
@@ -530,8 +541,59 @@
         <asp:ContentPlaceHolder ID="cphBottom" runat="server">
         </asp:ContentPlaceHolder>
     </div>
-    <div class="mainbg">
-    </div>
+    <%--<asp:ListView ID="lstBackground" runat="server" DataSourceID="odsBackground" EnableModelValidation="True">
+        <ItemTemplate>
+            <div id="bgmain" class="mainbg" data-img='<%# !string.IsNullOrEmpty(Eval("FileName").ToString()) ? "res/advertisement/" + Eval("FileName") : "~/assets/images/bg-body.jpg" %>'>
+            </div>
+        </ItemTemplate>
+        <LayoutTemplate>
+            <span runat="server" id="itemPlaceholder" />
+        </LayoutTemplate>
+    </asp:ListView>--%>
+    <%--<div id="banner">
+        <ul id="bannerSlider">
+            <li>
+                <div class="banner-img" rel-src="assets/images/bg-body.jpg"></div>
+            </li>
+            <li>
+                <div class="banner-img" rel-src="assets/images/images-2.jpg"></div>
+            </li>
+            <li>
+                <div class="banner-img" rel-src="assets/images/bg-body.jpg"></div>
+            </li>
+        </ul>
+        
+    </div>--%>
+    <asp:ListView ID="lstBackground" runat="server" DataSourceID="odsBackground" EnableModelValidation="True">
+        <ItemTemplate>
+            <li>
+                <div class="banner-img" rel-src='<%# !string.IsNullOrEmpty(Eval("FileName").ToString()) ? "res/advertisement/" + Eval("FileName") : "~/assets/images/bg-body.jpg" %>'>
+                </div>
+            </li>
+        </ItemTemplate>
+        <LayoutTemplate>
+            <div id="banner">
+                <ul id="bannerSlider">
+                    <li runat="server" id="itemPlaceholder"></li>
+                </ul>
+            </div>
+        </LayoutTemplate>
+    </asp:ListView>
+    <asp:ObjectDataSource ID="odsBackground" runat="server" SelectMethod="AdsBannerSelectAll"
+        TypeName="TLLib.AdsBanner">
+        <SelectParameters>
+            <asp:Parameter Name="StartRowIndex" Type="String" />
+            <asp:Parameter Name="EndRowIndex" Type="String" />
+            <asp:Parameter DefaultValue="5" Name="AdsCategoryID" Type="String" />
+            <asp:Parameter Name="CompanyName" Type="String" />
+            <asp:Parameter Name="Website" Type="String" />
+            <asp:Parameter Name="FromDate" Type="String" />
+            <asp:Parameter DefaultValue="" Name="ToDate" Type="String" />
+            <asp:Parameter DefaultValue="True" Name="IsAvailable" Type="String" />
+            <asp:Parameter Name="Priority" Type="String" />
+            <asp:Parameter DefaultValue="True" Name="SortByPriority" Type="String" />
+        </SelectParameters>
+    </asp:ObjectDataSource>
     <div id="sroltop">
         <a class="corner" href="javascript:void(0);"><span class="glyphicon glyphicon-chevron-up">
         </span></a>
