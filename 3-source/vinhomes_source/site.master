@@ -321,6 +321,57 @@
                                             </LayoutTemplate>
                                         </asp:ListView>
                                     </li>
+                                    <li class="dropdown">
+                                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tin tức <span class="caret"></span></a>
+                                        <asp:ListView ID="lstNewCategory" runat="server" DataSourceID="odsNewCategory"
+                                            EnableModelValidation="True">
+                                            <ItemTemplate>
+                                            <li><a href="javascript:void(0);">
+                                                <%# Eval("ArticleCategoryName")%></a>
+                                                <asp:HiddenField ID="hdnNewCategoryID" runat="server" Value='<%# Eval("ArticleCategoryID") %>' />
+                                                <asp:ListView ID="lstNewMobile" runat="server" DataSourceID="odsNew" EnableModelValidation="True">
+                                                    <ItemTemplate>
+                                                        <li><a href='<%# progressTitle(Eval("ArticleTitle")) + "-tri-" + Eval("ArticleID") + ".aspx" %>'
+                                                            class="corner">
+                                                            <%# Eval("ArticleTitle")%></a>
+                                                        </li>
+                                                    </ItemTemplate>
+                                                    <LayoutTemplate>
+                                                        <ul>
+                                                            <li runat="server" id="itemPlaceholder"></li>
+                                                        </ul>
+                                                    </LayoutTemplate>
+                                                </asp:ListView>
+                                                <asp:ObjectDataSource ID="odsNew" runat="server" SelectMethod="ArticleSelectAll"
+                                                TypeName="TLLib.Article">
+                                                <SelectParameters>
+                                                    <asp:Parameter Name="StartRowIndex" Type="String" />
+                                                    <asp:Parameter Name="EndRowIndex" Type="String" />
+                                                    <asp:Parameter Name="Keyword" Type="String" />
+                                                    <asp:Parameter Name="ArticleTitle" Type="String" />
+                                                    <asp:Parameter Name="Description" Type="String" />
+                                                    <asp:ControlParameter ControlID="hdnNewCategoryID" DefaultValue="" Name="ArticleCategoryID"
+                                                        PropertyName="Value" Type="String" />
+                                                    <asp:Parameter Name="Tag" Type="String" />
+                                                    <asp:Parameter Name="IsShowOnHomePage" Type="String" />
+                                                    <asp:Parameter Name="IsHot" Type="String" />
+                                                    <asp:Parameter Name="IsNew" Type="String" />
+                                                    <asp:Parameter Name="FromDate" Type="String" />
+                                                    <asp:Parameter Name="ToDate" Type="String" />
+                                                    <asp:Parameter DefaultValue="True" Name="IsAvailable" Type="String" />
+                                                    <asp:Parameter Name="Priority" Type="String" />
+                                                    <asp:Parameter DefaultValue="True" Name="SortByPriority" Type="String" />
+                                                </SelectParameters>
+                                            </asp:ObjectDataSource>
+                                            </li>
+                                            </ItemTemplate>
+                                            <LayoutTemplate>
+                                                <ul class="dropdown-menu">
+                                                    <li runat="server" id="itemPlaceholder"></li>
+                                                </ul>
+                                            </LayoutTemplate>
+                                        </asp:ListView>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -388,7 +439,7 @@
                     </div>
                     <ul id="menu" class="desktop-show">
                         <li class="active"><a href="~/" class="corner" runat="server">Trang chủ</a></li>
-                        <li><a href="javascript:void(0);" class="corner">Giới thiệu<span class="icona-right glyphicon glyphicon-chevron-right"></span></a>
+                        <li><a href="javascript:void(0);" class="corner">Giới thiệu<%--<span class="icona-right glyphicon glyphicon-chevron-right"></span>--%></a>
                             <asp:ListView ID="lstAboutMobile" runat="server" DataSourceID="odsAbout" EnableModelValidation="True">
                                 <ItemTemplate>
                                     <li><a href='<%# progressTitle(Eval("ArticleTitle")) + "-tt-" + Eval("ArticleID") + ".aspx" %>'
@@ -402,7 +453,7 @@
                                 </LayoutTemplate>
                             </asp:ListView>
                         </li>
-                        <li><a href="project.aspx" class="corner">Dự án<span class="icona-right glyphicon glyphicon-chevron-right"></span></a>
+                        <li><a href="project.aspx" class="corner">Dự án<%--<span class="icona-right glyphicon glyphicon-chevron-right"></span>--%></a>
                             <asp:ListView ID="lstProjectCategoryMobile" runat="server" DataSourceID="odsProjectCategory"
                                 EnableModelValidation="True">
                                 <ItemTemplate>
@@ -454,6 +505,56 @@
                                 </LayoutTemplate>
                             </asp:ListView>
                         </li>
+                        <li><a href="javascript:void(0);" class="corner">Tin tức</a>
+                            <asp:ListView ID="lstNewCategoryMobile" runat="server" DataSourceID="odsNewCategory"
+                                EnableModelValidation="True">
+                                <ItemTemplate>
+                                    <li><a href="javascript:void(0);" class="corner">
+                                        <%# Eval("ArticleCategoryName")%></a>
+                                        <asp:HiddenField ID="hdnArticleCategoryID" runat="server" Value='<%# Eval("ArticleCategoryID") %>' />
+                                        <asp:ListView ID="lstArticleMobile" runat="server" DataSourceID="odsArticleMobile"
+                                            EnableModelValidation="True">
+                                            <ItemTemplate>
+                                                <li><a href='<%# progressTitle(Eval("ArticleTitle")) + "-tri-" + Eval("ArticleID") + ".aspx" %>'
+                                                    class="corner">
+                                                    <%# Eval("ArticleTitle")%></a> </li>
+                                            </ItemTemplate>
+                                            <LayoutTemplate>
+                                                <ul>
+                                                    <li runat="server" id="itemPlaceholder"></li>
+                                                </ul>
+                                            </LayoutTemplate>
+                                        </asp:ListView>
+                                        <asp:ObjectDataSource ID="odsArticleMobile" runat="server" SelectMethod="ArticleSelectAll"
+                                            TypeName="TLLib.Article">
+                                            <SelectParameters>
+                                                <asp:Parameter Name="StartRowIndex" Type="String" />
+                                                <asp:Parameter Name="EndRowIndex" Type="String" />
+                                                <asp:Parameter Name="Keyword" Type="String" />
+                                                <asp:Parameter Name="ArticleTitle" Type="String" />
+                                                <asp:Parameter Name="Description" Type="String" />
+                                                <asp:ControlParameter ControlID="hdnArticleCategoryID" DefaultValue="" Name="ArticleCategoryID"
+                                                    PropertyName="Value" Type="String" />
+                                                <asp:Parameter Name="Tag" Type="String" />
+                                                <asp:Parameter Name="IsShowOnHomePage" Type="String" />
+                                                <asp:Parameter Name="IsHot" Type="String" />
+                                                <asp:Parameter Name="IsNew" Type="String" />
+                                                <asp:Parameter Name="FromDate" Type="String" />
+                                                <asp:Parameter Name="ToDate" Type="String" />
+                                                <asp:Parameter DefaultValue="True" Name="IsAvailable" Type="String" />
+                                                <asp:Parameter Name="Priority" Type="String" />
+                                                <asp:Parameter DefaultValue="True" Name="SortByPriority" Type="String" />
+                                            </SelectParameters>
+                                        </asp:ObjectDataSource>
+                                    </li>
+                                </ItemTemplate>
+                                <LayoutTemplate>
+                                    <ul class="menu-sub menu-right">
+                                        <li runat="server" id="itemPlaceholder"></li>
+                                    </ul>
+                                </LayoutTemplate>
+                            </asp:ListView>
+                        </li>
                     </ul>
                     <asp:ObjectDataSource ID="odsAbout" runat="server" SelectMethod="ArticleSelectAll"
                         TypeName="TLLib.Article">
@@ -479,6 +580,15 @@
                         TypeName="TLLib.ProjectCategory">
                         <SelectParameters>
                             <asp:Parameter Name="parentID" Type="Int32" DefaultValue="0" />
+                            <asp:Parameter Name="increaseLevelCount" Type="Int32" DefaultValue="1" />
+                            <asp:Parameter Name="IsShowOnMenu" Type="String" />
+                            <asp:Parameter Name="IsShowOnHomePage" Type="String" />
+                        </SelectParameters>
+                    </asp:ObjectDataSource>
+                    <asp:ObjectDataSource ID="odsNewCategory" runat="server" SelectMethod="ArticleCategorySelectAll"
+                        TypeName="TLLib.ArticleCategory">
+                        <SelectParameters>
+                            <asp:Parameter Name="parentID" Type="Int32" DefaultValue="2" />
                             <asp:Parameter Name="increaseLevelCount" Type="Int32" DefaultValue="1" />
                             <asp:Parameter Name="IsShowOnMenu" Type="String" />
                             <asp:Parameter Name="IsShowOnHomePage" Type="String" />

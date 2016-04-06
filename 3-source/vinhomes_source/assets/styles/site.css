@@ -336,13 +336,17 @@ body
 }
 #menu {
     position: relative;
-    width: 230px;
+    /*width: 230px;*/
+    width: 100%;
     z-index: 99;
     margin-left: 20px;
+    margin-bottom: 20px;
+    float: left;
 }
-#menu li {
-    margin-bottom: 6px;
+#menu > li {
+    margin: 0 2px;
     position: relative;
+    float: left;
 }
 #menu > li > a {
     color: #cfa54d;
@@ -357,7 +361,10 @@ body
     border-radius: 25px;
     -moz-border-radius: 25px;
     -webkit-border-radius: 25px;
-    border: 2px solid #ac8609
+    border: 2px solid #ac8609;
+    padding: 0 30px;
+    float: left;
+    min-width: 220px;
 }
 #menu > li.last {
     border: none;
@@ -375,14 +382,21 @@ body
     padding: 0;
     margin: 0;
     position: absolute;
-    min-width: 260px;
+    min-width: 220px;
     z-index: 99;
 }
 #menu .menu-right
 {
-    left: 100%;
+    /*left: 100%;
     right: auto;
-    top: 0;
+    top: 0;*/
+    top: 100%;
+    left: 0;
+}
+.menu-sub > li {
+    margin-top: 5px;
+    position: relative;
+    float: left;
 }
 .menu-sub li a
 {
@@ -400,6 +414,7 @@ body
      background-color: #00006b;
     border: solid 2px #ac8609;
     position: relative;
+    min-width: 220px;
 }
 .menu-sub .glyphicon
 {
@@ -412,6 +427,9 @@ body
     line-height: 18px;
     margin-top: -10px;
     width: 15px;
+}
+.menu-sub > li ul li {
+    margin-bottom: 5px;
 }
 .menu-sub li.active a, .menu-sub li a:hover
 {
@@ -426,9 +444,9 @@ body
 .menu-sub ul, .menul2-sub ul
 {
     display: none;
-    left: 100%;
-    padding: 0 1px 0 0;
-    right: auto;
+    left: auto;
+    margin: 0 2px 0 0;
+    right: 100%;
     top: 0;
     width: 100%;
     position: absolute;
@@ -986,7 +1004,7 @@ body
 .wrapper-slider 
 {
     left: 0;
-    top: -100px;
+    /*top: -100px;*/
     position: relative;
     margin-left: -100px;
     margin-right: -100px;
@@ -1566,9 +1584,14 @@ body .mobilep-right {
     #menu > li > a
     {
         font-size: 16px;
+        min-width: 195px;
+    }
+    #menu .menu-sub {
+        min-width: 195px;
     }
     .menu-sub li a {
         font-size: 13px;
+        min-width: 195px;
     }
     #menu .icona-right {
         top: 32%;
@@ -1628,14 +1651,16 @@ body .mobilep-right {
 @media (min-width: 768px) and (max-width: 870px)
 {
     #menu .menu-sub {
-        min-width: 230px;
+        min-width: 170px;
     }
     #menu > li > a {
         font-size: 14px;
+        min-width: 170px;
     }
     .menu-sub li a 
     {
         font-size: 12px;
+        min-width: 170px;
     }
 }
 /* Landscape phone to portrait tablet */
