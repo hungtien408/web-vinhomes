@@ -42,9 +42,9 @@
                 $(window).resize(function () {
                     bannerbox();
                 });
-                $("#bannerSlider li").each(function () {
-                    var srcimg = $(this).find(".banner-img").attr("rel-src");
-                    $(this).find(".banner-img").backstretch(srcimg);
+                $("#bannerSlider .banner-img").each(function () {
+                    var srcimg = $(this).attr("rel-src");
+                    $(this).backstretch(srcimg);
                 });
                 $("#wrapper").append('<div id="banner-control"><span class="slider-prev control-b"></span><span class="slider-next control-b"></span></div>');
                 var banner = $('#bannerSlider').bxSlider({
@@ -55,20 +55,20 @@
                 $("#banner-control .control-b").click(function () {
                     banner.startAuto();
                 });
-                //function banner
-                function bannerbox() {
-                    var hwin = $(window).height();
-                    var wwin = $(window).width();
-                    if (wwin > 979) {
-                        $("#bannerSlider .banner-img").css({ "height": hwin, "width": wwin });
-                    } else if (wwin > 768 && wwin < 980) {
-                        $("#bannerSlider .banner-img").css({ "height": hwin, "width": wwin });
-                    } else {
-                        $("#bannerSlider .banner-img").css({ "height": hwin, "width": wwin });
-                    }
-                }
             }
-    });
+        });
+        //function banner
+        function bannerbox() {
+            var hwin = $(window).height();
+            var wwin = $(window).width();
+            if (wwin > 979) {
+                $("#bannerSlider .banner-img").css({ "height": hwin, "width": wwin });
+            } else if (wwin > 768 && wwin < 980) {
+                $("#bannerSlider .banner-img").css({ "height": hwin, "width": wwin });
+            } else {
+                $("#bannerSlider .banner-img").css({ "height": hwin, "width": wwin });
+            }
+        }
     $(function () {
         $("#menuContent").mouseleave(function () {
             $(".panel-left").removeClass("current");

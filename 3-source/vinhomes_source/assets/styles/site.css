@@ -444,9 +444,9 @@ body
 .menu-sub ul, .menul2-sub ul
 {
     display: none;
-    left: auto;
-    margin: 0 2px 0 0;
-    right: 100%;
+    left: 100%;
+    margin: 0 0 0 1px;
+    right: auto;
     top: 0;
     width: 100%;
     position: absolute;

@@ -31,22 +31,12 @@
                             <span runat="server" id="itemPlaceholder" />
                         </LayoutTemplate>
                     </asp:ListView>
-                    <asp:ObjectDataSource ID="odsProject" runat="server" SelectMethod="ProjectSelectAll"
+                    <asp:ObjectDataSource ID="odsProject" runat="server" SelectMethod="ProjectSameSelectAll"
                         TypeName="TLLib.Project">
                         <SelectParameters>
-                            <asp:Parameter Name="StartRowIndex" Type="String" />
-                            <asp:Parameter Name="EndRowIndex" Type="String" />
-                            <asp:Parameter Name="Keyword" Type="String" />
-                            <asp:Parameter Name="ProjectTitle" Type="String" />
-                            <asp:Parameter Name="Description" Type="String" />
-                            <asp:Parameter Name="ProjectCategoryID" Type="String" />
-                            <asp:Parameter Name="Tag" Type="String" />
-                            <asp:Parameter Name="IsShowOnHomePage" Type="String" />
-                            <asp:Parameter Name="FromDate" Type="String" />
-                            <asp:Parameter Name="ToDate" Type="String" />
-                            <asp:Parameter DefaultValue="True" Name="IsAvailable" Type="String" />
-                            <asp:Parameter Name="Priority" Type="String" />
-                            <asp:Parameter DefaultValue="True" Name="SortByPriority" Type="String" />
+                            <asp:Parameter Name="RerultCount" Type="String" DefaultValue="10" />
+                            <asp:QueryStringParameter DefaultValue="" Name="ProjectID" 
+                                QueryStringField="pri" Type="String" />
                         </SelectParameters>
                     </asp:ObjectDataSource>
                 </div>
