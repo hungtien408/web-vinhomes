@@ -184,6 +184,7 @@ body
     width: auto !important;
     position: fixed;
     margin-left: 130px !important;
+    z-index: 100;
 }
 #hotline img 
 {
@@ -247,6 +248,7 @@ body
     position: fixed;
     margin-left: 130px;
     width: 320px;
+    z-index: 100;
 }
 .contactusroll #login {
     width: 318px;
@@ -404,10 +406,10 @@ body
     display: block;
     font-size: 14px;
     font-weight: 700;
-    line-height: 30px;
+    line-height: 24px;
     text-align: center;
     text-transform: uppercase;
-    padding: 8px 20px;
+    padding: 12px 20px;
     border-radius: 25px;
     -moz-border-radius: 25px;
     -webkit-border-radius: 25px;
@@ -878,7 +880,7 @@ body
     padding: 3px 9px;
     height: 30px;
     line-height: 30px;
-    width: 220px;
+    width: 100%;
     background: none;
 }
 .content-area {
@@ -894,6 +896,10 @@ body
 .login-input .btn-a
 {
     margin: 0 auto;
+}
+.login-input .btn-footer {
+    float: left;
+    margin-right: 5px;
 }
 #login .link-for,#login2 .link-for
 {
@@ -1302,8 +1308,9 @@ body
 #wrapper #footer
 {
     background-color: #00006b;
-    padding: 12px 0 5px;
-    overflow: hidden;
+    /*padding: 12px 0 5px;*/
+    padding: 0 0 5px;
+    /*overflow: hidden;*/
     left: 0;
     bottom: 0;
     position: absolute;
@@ -1311,6 +1318,61 @@ body
     border-top: 1px solid #333389;
     width: 100%;
     z-index: 3;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+}
+.footer-wrapper {
+    background-color: #00006b;
+    padding: 20px 0;
+}
+.footerscroll {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+.footerscroll2 {
+    position: relative !important;
+}
+.footer-wrapper .footer-box {
+    padding: 0 15px;
+    overflow: hidden;
+}
+.footer-box .row {
+    margin-left: -8px;
+    margin-right: -8px;
+}
+.footer-box .col-sm-2, .footer-box .col-sm-4 {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+.footer-box .login-input {
+    float: left;
+    width: 100%;
+}
+.holine-input {
+    width: auto !important;
+}
+.login-input .contact-lb {
+    color: #fff;
+    display: block;
+    float: right;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 34px;
+    margin: 0;
+    width: 100px;
+}
+.contact-lb.holine {
+    width: 170px;
+    font-size: 16px;
+    float: left;
+}
+.copyright {    
+    padding-top: 3px;
+    overflow: hidden;
 }
 #footer, #footer a
 {
@@ -1546,7 +1608,6 @@ body .mobilep-right {
     #language {
         width: 100%;
         float: right;
-        /*margin-bottom: 12px;*/
         text-align: right;
     }
     #language img, #language input {
@@ -1647,6 +1708,36 @@ body .mobilep-right {
         -moz-border-radius: 12px;
         -webkit-border-radius: 12px;
     }
+    /*footer-wrapper*/
+    .footer-wrapper {
+        padding: 0;
+    }
+    #footer .col-sm-2, #footer .col-sm-4 {
+        width: 100%;
+    }
+    .footer-wrapper .footer-box {
+        padding: 0 15px 0;
+    }
+    .footer-box .login-input {
+        float: none;
+        padding: 5px 0;
+        margin: 0 auto;
+        width: 50%;
+        text-align: center;
+    }
+    .login-input .contact-lb {
+        float: none;
+        text-align: center;
+        margin: 0 auto;
+    }
+    .footerscroll {
+        position: relative;
+    }
+    .login-input .btn-footer {
+        float: none;
+        margin: 0 auto;
+    
+    }
 }
 @media (min-width: 768px) and (max-width: 870px)
 {
@@ -1720,6 +1811,36 @@ body .mobilep-right {
     }
     .wrapper-text div {
         float: none !important;
+    }
+    /*footer-wrapper*/
+    #wrapper #footer {
+        position: relative;
+    }
+    .footer-wrapper {
+        padding: 10px 0 0;
+    }
+    .footer-wrapper .footer-box {
+        padding: 0 15px 0;
+    }
+    .footer-box .login-input {
+        float: none;
+        padding: 5px 0;
+        margin: 0 auto;
+        width: 50%;
+        text-align: center;
+    }
+    .login-input .contact-lb {
+        float: none;
+        text-align: center;
+        margin: 0 auto;
+    }
+    .footerscroll {
+        position: relative;
+    }
+    .login-input .btn-footer {
+        float: none;
+        margin: 0 auto;
+    
     }
 }
 @media (min-width: 481px) and (max-width: 767px)
@@ -1840,6 +1961,9 @@ body .mobilep-right {
     .project-tb .col-xs-4{
         width: 100%;
     }
+    #wrapper #footer {
+        position: relative;
+    }
 }
 @media (max-width: 480px)
 {
@@ -1899,6 +2023,16 @@ body .mobilep-right {
     }
     #menul2 .menul2-sub {
         min-width: 260px;
+    }
+    /*footer-wrapper*/
+    #wrapper #footer {
+        position: relative;
+    }
+    .footer-box .login-input {
+        width: 100%;
+    }
+    .footerscroll {
+        position: relative;
     }
 }
 @media (max-width: 420px)

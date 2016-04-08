@@ -258,6 +258,11 @@
         srollmenu(htop);
         $(window).scroll(function () {
             srollmenu(htop);
+            if ($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+                $(".footer-wrapper").addClass("footerscroll2");
+            } else {
+                $(".footer-wrapper").removeClass("footerscroll2");
+            }
         });
     }
     function srollmenu(htop) {
@@ -265,10 +270,12 @@
             $("#header-menu").addClass("header-sroll");
             $("#hotline").addClass("hotlineroll");
             $(".contactdesk").addClass("contactusroll");
+            $(".footer-wrapper").addClass("footerscroll");
         } else {
             $("#header-menu").removeClass("header-sroll");
             $("#hotline").removeClass("hotlineroll");
             $(".contactdesk").removeClass("contactusroll");
+            $(".footer-wrapper").removeClass("footerscroll");
         }
     }
     function mysroll() {

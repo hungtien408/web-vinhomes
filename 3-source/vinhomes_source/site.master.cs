@@ -59,6 +59,14 @@ public partial class site : System.Web.UI.MasterPage
         msg += "<b>Nội dung: </b>" + txtContent2.Text.Trim().ToString();
         Common.SendMail("smtp.gmail.com", 587, "vinhomesgolden01@gmail.com", "vinhome123456", "kimhoangf1@gmail.com", "", "CONTACT VINHOMES GOLDEN RIVER", msg, true);
     }
+    private void sendEmail3()
+    {
+        string msg = "<h3>VINHOMES GOLDEN RIVER: CONTACT</h3><br/>";
+        msg += "<b>Họ tên: </b>" + txtFullName3.Text.Trim().ToString() + "<br />";
+        msg += "<b>Email: </b>" + txtEmail3.Text.Trim().ToString() + "<br />";
+        msg += "<b>Điện thoại: </b>" + txtPhone3.Text.Trim().ToString();
+        Common.SendMail("smtp.gmail.com", 587, "vinhomesgolden01@gmail.com", "vinhome123456", "kimhoangf1@gmail.com", "", "CONTACT VINHOMES GOLDEN RIVER", msg, true);
+    }
     protected void btnSend_Click(object sender, EventArgs e)
     {
         if (Page.IsValid)
@@ -97,18 +105,45 @@ public partial class site : System.Web.UI.MasterPage
 
             //send email         
             sendEmail2();
-            lblMessage.Text = "Cám ơn bạn đã liên lạc với chúng tôi. Thông báo của bạn đã được gửi đi. Chúng tôi sẽ liên lạc với bạn trong thời gian sớm nhất!";
+            lblMessage2.Text = "Cám ơn bạn đã liên lạc với chúng tôi. Thông báo của bạn đã được gửi đi. Chúng tôi sẽ liên lạc với bạn trong thời gian sớm nhất!";
             ScriptManager.RegisterClientScriptBlock(Page, Page.GetType(), "runtime", " $(document).ready(function () {alert('Cám ơn bạn đã liên lạc với chúng tôi. Thông báo của bạn đã được gửi đi. Chúng tôi sẽ liên lạc với bạn trong thời gian sớm nhất!')});", true);
-            lblMessage.Visible = true;
-            lblMessage.Text = "";
+            lblMessage2.Visible = true;
+            lblMessage2.Text = "";
             //
             //Clear text
             //
-            txtFullName.Text = "";
-            txtEmail.Text = "";
-            txtPhone.Text = "";
-            txtAddress.Text = "";
-            txtContent.Text = "";
+            txtFullName2.Text = "";
+            txtEmail2.Text = "";
+            txtPhone2.Text = "";
+            txtAddress2.Text = "";
+            txtContent2.Text = "";
+            //}
+            //else
+            //{
+            //    lblMessage.Text = "Chuỗi xác nhận chưa đúng !";
+            //    ScriptManager.RegisterClientScriptBlock(Page, Page.GetType(), "runtime", " $(document).ready(function () {alert('Chuỗi xác nhận chưa đúng !')});", true);
+            //}
+        }
+    }
+    protected void btnSend3_Click(object sender, EventArgs e)
+    {
+        if (Page.IsValid)
+        {
+            //if (RadCaptcha1.IsValid)
+            //{
+
+            //send email         
+            sendEmail3();
+            lblMessage3.Text = "Cám ơn bạn đã liên lạc với chúng tôi. Thông báo của bạn đã được gửi đi. Chúng tôi sẽ liên lạc với bạn trong thời gian sớm nhất!";
+            ScriptManager.RegisterClientScriptBlock(Page, Page.GetType(), "runtime", " $(document).ready(function () {alert('Cám ơn bạn đã liên lạc với chúng tôi. Thông báo của bạn đã được gửi đi. Chúng tôi sẽ liên lạc với bạn trong thời gian sớm nhất!')});", true);
+            lblMessage3.Visible = true;
+            lblMessage3.Text = "";
+            //
+            //Clear text
+            //
+            txtFullName3.Text = "";
+            txtEmail3.Text = "";
+            txtPhone3.Text = "";
             //}
             //else
             //{

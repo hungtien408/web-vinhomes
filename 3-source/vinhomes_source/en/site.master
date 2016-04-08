@@ -447,7 +447,7 @@
                                 <div class="login-input">
                                     <asp:Button ID="btnSend2" CssClass="btn-a" runat="server" Text="Gửi" ValidationGroup="SendContact2"
                                         OnClick="btnSend2_Click" />
-                                    <asp:Label runat="server" ID="Label1" ForeColor="red"></asp:Label>
+                                    <asp:Label runat="server" ID="lblMessage2" ForeColor="red"></asp:Label>
                                 </div>
                             </div>
                         </div>
@@ -672,26 +672,88 @@
             </div>--%>
             <!--footer-->
             <div id="footer">
-                <div class="col-sm-6">
+                <div class="footer-wrapper">
                     <div class="footer-box">
-                        <div class="share-fa">
-                            Follow us on <a href="#">
-                                <img src="../assets/images/fbox-4.png" alt="" /></a><a href="mailTo:kimhoang@greenhillcorp.com"><img
-                                    src="../assets/images/fbox-3.png" alt="" /></a><a href="#"><img src="../assets/images/fbox-2.png"
-                                        alt="" /></a><a href="https://www.facebook.com/VinHomes-Golden-River-207329649628121/"><img
-                                            src="../assets/images/fbox-1.png" alt="" /></a></div>
-                        <div class="online">
-                            Đang online: <strong>
-                                <%=Application["visitors_online"].ToString()%></strong> | Lượt truy cập: <strong>
-                                    <%=Application["TatCa"].ToString()%></strong></div>
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <div class="login-input">
+                                    <label class="contact-lb">
+                                        Get proposal:</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="login-input">
+                                    <asp:TextBox ID="txtFullName3" CssClass="login-text" runat="server"></asp:TextBox>
+                                    <asp:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender6" runat="server" Enabled="True"
+                                        WatermarkText="Fullname" TargetControlID="txtFullName3">
+                                    </asp:TextBoxWatermarkExtender>
+                                    <asp:RequiredFieldValidator CssClass="lb-error" ID="RequiredFieldValidator11" runat="server"
+                                        Display="Dynamic" ValidationGroup="SendContact3" ControlToValidate="txtFullName3"
+                                        ErrorMessage="Information required!" ForeColor="Red"></asp:RequiredFieldValidator>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="login-input">
+                                    <asp:TextBox ID="txtEmail3" CssClass="login-text" runat="server"></asp:TextBox>
+                                    <asp:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender7" runat="server" Enabled="True"
+                                        WatermarkText="Email" TargetControlID="txtEmail3">
+                                    </asp:TextBoxWatermarkExtender>
+                                    <asp:RegularExpressionValidator CssClass="lb-error" ID="RegularExpressionValidator3"
+                                        runat="server" ValidationGroup="SendContact3" ControlToValidate="txtEmail3" ErrorMessage="Email not match!"
+                                        ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" Display="Dynamic"
+                                        ForeColor="Red"></asp:RegularExpressionValidator>
+                                    <asp:RequiredFieldValidator CssClass="lb-error" ID="RequiredFieldValidator12" runat="server"
+                                        ValidationGroup="SendContact3" ControlToValidate="txtEmail3" ErrorMessage="Information required!"
+                                        Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="login-input">
+                                    <asp:TextBox ID="txtPhone3" CssClass="login-text" runat="server"></asp:TextBox>
+                                    <asp:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender8" runat="server" Enabled="True"
+                                        WatermarkText="Phone" TargetControlID="txtPhone3">
+                                    </asp:TextBoxWatermarkExtender>
+                                    <asp:RequiredFieldValidator CssClass="lb-error" ID="RequiredFieldValidator13" runat="server"
+                                        Display="Dynamic" ValidationGroup="SendContact3" ControlToValidate="txtPhone3"
+                                        ErrorMessage="Information required!" ForeColor="Red"></asp:RequiredFieldValidator>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="login-input holine-input">
+                                    <asp:Button ID="btnSend3" CssClass="btn-a btn-footer" runat="server" Text="Đăng ký"
+                                        ValidationGroup="SendContact3" OnClick="btnSend3_Click" />
+                                    <asp:Label runat="server" ID="lblMessage3" ForeColor="red"></asp:Label>
+                                </div>
+                                <div class="login-input holine-input">
+                                    <label class="contact-lb holine">
+                                        Hotline: 093 110 1116</label>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-sm-6">
-                    <div class="footer-box text-right">
-                        <p>
-                            &copy; 2016 - VINHOME. All Rights Reserved | <a href="http://wwww.tranlegroup.com"
-                                target="_blank">Thiết kế web</a> <a href="http://wwww.tranlegroup.com" target="_blank">
-                                    Tran Le</a></p>
+                <div class="copyright">
+                    <div class="col-sm-6">
+                        <div class="footer-box">
+                            <div class="share-fa">
+                                Follow us on <a href="#">
+                                    <img src="../assets/images/fbox-4.png" alt="" /></a><a href="mailTo:kimhoang@greenhillcorp.com"><img
+                                        src="../assets/images/fbox-3.png" alt="" /></a><a href="#"><img src="../assets/images/fbox-2.png"
+                                            alt="" /></a><a href="https://www.facebook.com/VinHomes-Golden-River-207329649628121/"><img
+                                                src="../assets/images/fbox-1.png" alt="" /></a></div>
+                            <div class="online">
+                                Đang online: <strong>
+                                    <%=Application["visitors_online"].ToString()%></strong> | Lượt truy cập: <strong>
+                                        <%=Application["TatCa"].ToString()%></strong></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="footer-box text-right">
+                            <p>
+                                &copy; 2016 - VINHOME. All Rights Reserved | <a href="http://wwww.tranlegroup.com"
+                                    target="_blank">Thiết kế web</a> <a href="http://wwww.tranlegroup.com" target="_blank">
+                                        Tran Le</a></p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -726,8 +788,8 @@
             </div>
         </LayoutTemplate>
     </asp:ListView>
-    <asp:ObjectDataSource ID="odsBackground" runat="server" 
-        SelectMethod="AdsBannerSelectAll" TypeName="TLLib.AdsBanner">
+    <asp:ObjectDataSource ID="odsBackground" runat="server" SelectMethod="AdsBannerSelectAll"
+        TypeName="TLLib.AdsBanner">
         <SelectParameters>
             <asp:Parameter Name="StartRowIndex" Type="String" />
             <asp:Parameter Name="EndRowIndex" Type="String" />
