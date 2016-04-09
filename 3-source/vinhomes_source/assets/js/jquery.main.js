@@ -133,7 +133,7 @@
         });
         $('.project-tb').textHeight({
             activetit: true,
-            listcss: [{ cssname: ".project-name"}],
+            listcss: [{ cssname: ".project-img" }, { cssname: ".project-name"}],
             wpointb: false,
             widthpont: 420,
             desbool: true,
