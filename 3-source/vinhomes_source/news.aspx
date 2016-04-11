@@ -36,8 +36,7 @@
                             <asp:Parameter Name="Keyword" Type="String" />
                             <asp:Parameter Name="ArticleTitle" Type="String" />
                             <asp:Parameter Name="Description" Type="String" />
-                            <asp:QueryStringParameter QueryStringField="tci" Name="ArticleCategoryID" 
-                                Type="String" />
+                            <asp:Parameter DefaultValue="2" Name="ArticleCategoryID" Type="String" />
                             <asp:Parameter Name="Tag" Type="String" />
                             <asp:Parameter DefaultValue="True" Name="IsShowOnHomePage" Type="String" />
                             <asp:Parameter Name="IsHot" Type="String" />

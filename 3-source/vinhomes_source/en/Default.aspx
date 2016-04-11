@@ -17,7 +17,7 @@
                             <h2 class="title-pro">
                                 <span>Project</span></h2>
                             <div class="pro-name">
-                                <a href='<%# progressTitle(Eval("ProjectTitleEn")) + "-pri-" + Eval("ProjectID") + ".aspx" %>'><%# Eval("ProjectTitleEn") %></a></div>
+                                <a href='<%# progressTitle(Eval("ProjectTitleEn")) + "-pri-" + Eval("ProjectID") + ".aspx" %>'><%# TLLib.Common.SplitSummary(Eval("ProjectTitleEn").ToString(), 30)%></a></div>
                         </div>
                     </div>
                 </ItemTemplate>

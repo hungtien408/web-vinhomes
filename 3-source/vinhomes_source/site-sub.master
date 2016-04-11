@@ -12,7 +12,7 @@
             </asp:ContentPlaceHolder>
             <div class="col-aside">
                 <div class="listAside">
-                    <asp:ListView ID="lstAbout" runat="server" DataSourceID="odsAbout"
+                    <%--<asp:ListView ID="lstAbout" runat="server" DataSourceID="odsAbout"
                         EnableModelValidation="True">
                         <ItemTemplate>
                             <div class="box-in">
@@ -38,7 +38,7 @@
                             <asp:QueryStringParameter DefaultValue="" Name="ArticleID" 
                                 QueryStringField="tt" Type="String" />
                         </SelectParameters>
-                    </asp:ObjectDataSource>
+                    </asp:ObjectDataSource>--%>
                 </div>
             </div>
             <div class="col-main">
@@ -47,7 +47,7 @@
             </div>
             <div id="mobileAside">
                 <div class="listAside">
-                    <asp:ListView ID="lstAboutCategoryMobile" runat="server" DataSourceID="odsAbout"
+                    <%--<asp:ListView ID="lstAboutCategoryMobile" runat="server" DataSourceID="odsAbout"
                         EnableModelValidation="True">
                         <ItemTemplate>
                             <div class="box-in">
@@ -65,7 +65,7 @@
                         <LayoutTemplate>
                             <span runat="server" id="itemPlaceholder" />
                         </LayoutTemplate>
-                    </asp:ListView>
+                    </asp:ListView>--%>
                 </div>
             </div>
         </div>

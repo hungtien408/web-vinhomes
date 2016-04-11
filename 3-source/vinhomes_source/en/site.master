@@ -257,8 +257,8 @@
                             <div id="navbar" class="navbar-collapse collapse">
                                 <ul class="nav navbar-nav">
                                     <li class="active"><a id="A1" href="~/en/" runat="server">Home</a></li>
-                                    <li class="dropdown">
-                                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About us <span class="caret"></span></a>
+                                    <%--<li class="dropdown">
+                                        <a href="about-us.aspx" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About us <span class="caret"></span></a>
                                         <asp:ListView ID="lstAbout" runat="server" DataSourceID="odsAbout" EnableModelValidation="True">
                                             <ItemTemplate>
                                                 <li><a href='<%# progressTitle(Eval("ArticleTitleEn")) + "-tt-" + Eval("ArticleID") + ".aspx" %>'>
@@ -270,7 +270,8 @@
                                                 </ul>
                                             </LayoutTemplate>
                                         </asp:ListView>
-                                    </li>
+                                    </li>--%>
+                                    <li><a href="about-us.aspx">About us</a></li>
                                     <li class="dropdown">
                                         <a href="project.aspx" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Project <span class="caret"></span></a>
                                         <asp:ListView ID="lstProjectCategory" runat="server" DataSourceID="odsProjectCategory"
@@ -373,8 +374,8 @@
                                             </LayoutTemplate>
                                         </asp:ListView>
                                     </li>--%>
-                                    <li class="dropdown">
-                                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">News <span class="caret"></span></a>
+                                    <%--<li class="dropdown">
+                                        <a href="news.aspx" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">News <span class="caret"></span></a>
                                         <asp:ListView ID="lstNew" runat="server" DataSourceID="odsNew" EnableModelValidation="True">
                                             <ItemTemplate>
                                                 <li><a href='<%# progressTitle(Eval("ArticleTitleEn")) + "-tri-" + Eval("ArticleID") + ".aspx" %>'>
@@ -386,7 +387,8 @@
                                                 </ul>
                                             </LayoutTemplate>
                                         </asp:ListView>
-                                    </li>
+                                    </li>--%>
+                                    <li><a href="news.aspx">News</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -454,8 +456,8 @@
                     </div>
                     <ul id="menu" class="desktop-show">
                         <li class="active"><a href="~/en/" class="corner" runat="server">Home</a></li>
-                        <li><a href="javascript:void(0);" class="corner">About us<span class="icona-right glyphicon glyphicon-chevron-right"></span></a>
-                            <asp:ListView ID="lstAboutMobile" runat="server" DataSourceID="odsAbout" EnableModelValidation="True">
+                        <li><a href="about-us.aspx" class="corner">About us<span class="icona-right glyphicon glyphicon-chevron-right"></span></a>
+                            <%--<asp:ListView ID="lstAboutMobile" runat="server" DataSourceID="odsAbout" EnableModelValidation="True">
                                 <ItemTemplate>
                                     <li><a href='<%# progressTitle(Eval("ArticleTitleEn")) + "-tt-" + Eval("ArticleID") + ".aspx" %>'
                                         class="corner">
@@ -466,7 +468,7 @@
                                         <li runat="server" id="itemPlaceholder"></li>
                                     </ul>
                                 </LayoutTemplate>
-                            </asp:ListView>
+                            </asp:ListView>--%>
                         </li>
                         <li><a href="project.aspx" class="corner">Project<span class="icona-right glyphicon glyphicon-chevron-right"></span></a>
                             <asp:ListView ID="lstProjectCategoryMobile" runat="server" DataSourceID="odsProjectCategory"
@@ -570,8 +572,8 @@
                                 </LayoutTemplate>
                             </asp:ListView>
                         </li>--%>
-                        <li><a href="javascript:void(0);" class="corner">News</a>
-                            <asp:ListView ID="lstNewMobile" runat="server" DataSourceID="odsNew" EnableModelValidation="True">
+                        <li><a href="news.aspx" class="corner">News</a>
+                            <%--<asp:ListView ID="lstNewMobile" runat="server" DataSourceID="odsNew" EnableModelValidation="True">
                                 <ItemTemplate>
                                     <li><a href='<%# progressTitle(Eval("ArticleTitleEn")) + "-tri-" + Eval("ArticleID") + ".aspx" %>'
                                         class="corner">
@@ -582,7 +584,7 @@
                                         <li runat="server" id="itemPlaceholder"></li>
                                     </ul>
                                 </LayoutTemplate>
-                            </asp:ListView>
+                            </asp:ListView>--%>
                         </li>
                     </ul>
                     <asp:ObjectDataSource ID="odsAbout" runat="server" SelectMethod="ArticleSelectAll"
