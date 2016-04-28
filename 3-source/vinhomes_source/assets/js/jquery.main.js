@@ -270,12 +270,14 @@
             $("#header-menu").addClass("header-sroll");
             $("#hotline").addClass("hotlineroll");
             $(".contactdesk").addClass("contactusroll");
+            //$(".footer-wrapper").addClass("footerscroll");
+        } else if ($('div').hasClass('wrapper-about')) {
             $(".footer-wrapper").addClass("footerscroll");
         } else {
             $("#header-menu").removeClass("header-sroll");
             $("#hotline").removeClass("hotlineroll");
             $(".contactdesk").removeClass("contactusroll");
-            $(".footer-wrapper").removeClass("footerscroll");
+            //$(".footer-wrapper").removeClass("footerscroll");
         }
     }
     function mysroll() {

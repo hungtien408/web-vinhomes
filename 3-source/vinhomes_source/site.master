@@ -89,7 +89,7 @@
                                     <span>Hotline</span><strong>093 110 1116</strong></div>
                             </div>
                             <div class="contactus contactdesk">
-                                <a class="link-a login-link desktop-showhide" href="#login">Liên hệ với chúng tôi<span
+                                <a class="link-a login-link desktop-showhide" href="#login">Liên hệ đặt mua<span
                                     class="icona-right glyphicon glyphicon-chevron-right"></span></a>
                                 <div id="login" class="desktop-show">
                                     <div class="login-input">
@@ -270,16 +270,16 @@
                                             </LayoutTemplate>
                                         </asp:ListView>
                                     </li>--%>
-                                    <li><a href="about-us.aspx">Giới thiệu</a></li>
+                                    <%--<li><a href="about-us.aspx">Giới thiệu</a></li>--%>
                                     <li class="dropdown">
                                         <a href="project.aspx" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dự án <span class="caret"></span></a>
                                         <asp:ListView ID="lstProjectCategory" runat="server" DataSourceID="odsProjectCategory"
                                             EnableModelValidation="True">
                                             <ItemTemplate>
-                                            <li><%--<a href='<%# progressTitle(Eval("ProjectCategoryName")) + "-pci-" + Eval("ProjectCategoryID") + ".aspx" %>'>
-                                                <%# Eval("ProjectCategoryName")%></a>--%>
-                                                <a href="javascript:void(0);">
+                                            <li><a href='<%# progressTitle(Eval("ProjectCategoryName")) + "-pci-" + Eval("ProjectCategoryID") + ".aspx" %>'>
                                                 <%# Eval("ProjectCategoryName")%></a>
+                                                <%--<a href="javascript:void(0);">
+                                                <%# Eval("ProjectCategoryName")%></a>--%>
                                                 <asp:HiddenField ID="hdnProjectCategoryID" runat="server" Value='<%# Eval("ProjectCategoryID") %>' />
                                                 <asp:ListView ID="lstProjectMobile" runat="server" DataSourceID="odsProject" EnableModelValidation="True">
                                                     <ItemTemplate>
@@ -393,7 +393,7 @@
                         </div>
                         </nav>
                         <div class="contactus contactmo mobile-showhide">
-                            <a class="link-a login-link mobile-showhide" href="#login2">Liên hệ với chúng tôi<span
+                            <a class="link-a login-link mobile-showhide" href="#login2">Liên hệ đặt mua<span
                                 class="icona-right glyphicon glyphicon-chevron-right"></span></a>
                             <div id="login2">
                                 <div class="login-input">
@@ -455,8 +455,8 @@
                     </div>
                     <ul id="menu" class="desktop-show">
                         <li class="active"><a href="~/" class="corner" runat="server">Trang chủ</a></li>
-                        <li><a href="about-us.aspx" class="corner">Giới thiệu<%--<span class="icona-right glyphicon glyphicon-chevron-right"></span>--%></a>
-                            <%--<asp:ListView ID="lstAboutMobile" runat="server" DataSourceID="odsAbout" EnableModelValidation="True">
+                        <%--<li><a href="about-us.aspx" class="corner">Giới thiệu<span class="icona-right glyphicon glyphicon-chevron-right"></span></a>
+                            <asp:ListView ID="lstAboutMobile" runat="server" DataSourceID="odsAbout" EnableModelValidation="True">
                                 <ItemTemplate>
                                     <li><a href='<%# progressTitle(Eval("ArticleTitle")) + "-tt-" + Eval("ArticleID") + ".aspx" %>'
                                         class="corner">
@@ -467,18 +467,18 @@
                                         <li runat="server" id="itemPlaceholder"></li>
                                     </ul>
                                 </LayoutTemplate>
-                            </asp:ListView>--%>
-                        </li>
+                            </asp:ListView>
+                        </li>--%>
                         <li><a href="project.aspx" class="corner">Dự án<%--<span class="icona-right glyphicon glyphicon-chevron-right"></span>--%></a>
                             <asp:ListView ID="lstProjectCategoryMobile" runat="server" DataSourceID="odsProjectCategory"
                                 EnableModelValidation="True">
                                 <ItemTemplate>
                                     <li>
-                                        <%--<a href='<%# progressTitle(Eval("ProjectCategoryName")) + "-pci-" + Eval("ProjectCategoryID") + ".aspx" %>'
+                                        <a href='<%# progressTitle(Eval("ProjectCategoryName")) + "-pci-" + Eval("ProjectCategoryID") + ".aspx" %>'
                                         class="corner">
-                                        <%# Eval("ProjectCategoryName")%></a>--%>
-                                        <a href="javascript:void(0);" class="corner">
-                                            <%# Eval("ProjectCategoryName")%></a>
+                                        <%# Eval("ProjectCategoryName")%></a>
+                                        <%--<a href="javascript:void(0);" class="corner">
+                                            <%# Eval("ProjectCategoryName")%></a>--%>
                                         <asp:HiddenField ID="hdnProjectCategoryID" runat="server" Value='<%# Eval("ProjectCategoryID") %>' />
                                         <asp:ListView ID="lstProjectMobile" runat="server" DataSourceID="odsProjectMobile"
                                             EnableModelValidation="True">

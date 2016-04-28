@@ -271,16 +271,16 @@
                                             </LayoutTemplate>
                                         </asp:ListView>
                                     </li>--%>
-                                    <li><a href="about-us.aspx">About us</a></li>
+                                    <%--<li><a href="about-us.aspx">About us</a></li>--%>
                                     <li class="dropdown">
                                         <a href="project.aspx" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Project <span class="caret"></span></a>
                                         <asp:ListView ID="lstProjectCategory" runat="server" DataSourceID="odsProjectCategory"
                                             EnableModelValidation="True">
                                             <ItemTemplate>
-                                            <li><%--<a href='<%# progressTitle(Eval("ProjectCategoryNameEn")) + "-pci-" + Eval("ProjectCategoryID") + ".aspx" %>'>
-                                                <%# Eval("ProjectCategoryName")%></a>--%>
-                                                <a href="javascript:void(0);">
-                                                <%# Eval("ProjectCategoryNameEn")%></a>
+                                            <li><a href='<%# progressTitle(Eval("ProjectCategoryNameEn")) + "-pci-" + Eval("ProjectCategoryID") + ".aspx" %>'>
+                                                <%# Eval("ProjectCategoryName")%></a>
+                                                <%--<a href="javascript:void(0);">
+                                                <%# Eval("ProjectCategoryNameEn")%></a>--%>
                                                 <asp:HiddenField ID="hdnProjectCategoryID" runat="server" Value='<%# Eval("ProjectCategoryID") %>' />
                                                 <asp:ListView ID="lstProject" runat="server" DataSourceID="odsProject" EnableModelValidation="True">
                                                     <ItemTemplate>
@@ -456,8 +456,8 @@
                     </div>
                     <ul id="menu" class="desktop-show">
                         <li class="active"><a href="~/en/" class="corner" runat="server">Home</a></li>
-                        <li><a href="about-us.aspx" class="corner">About us<span class="icona-right glyphicon glyphicon-chevron-right"></span></a>
-                            <%--<asp:ListView ID="lstAboutMobile" runat="server" DataSourceID="odsAbout" EnableModelValidation="True">
+                        <%--<li><a href="about-us.aspx" class="corner">About us<span class="icona-right glyphicon glyphicon-chevron-right"></span></a>
+                            <asp:ListView ID="lstAboutMobile" runat="server" DataSourceID="odsAbout" EnableModelValidation="True">
                                 <ItemTemplate>
                                     <li><a href='<%# progressTitle(Eval("ArticleTitleEn")) + "-tt-" + Eval("ArticleID") + ".aspx" %>'
                                         class="corner">
@@ -468,18 +468,18 @@
                                         <li runat="server" id="itemPlaceholder"></li>
                                     </ul>
                                 </LayoutTemplate>
-                            </asp:ListView>--%>
-                        </li>
-                        <li><a href="project.aspx" class="corner">Project<span class="icona-right glyphicon glyphicon-chevron-right"></span></a>
+                            </asp:ListView>
+                        </li>--%>
+                        <li><a href="project.aspx" class="corner">Project<%--<span class="icona-right glyphicon glyphicon-chevron-right"></span>--%></a>
                             <asp:ListView ID="lstProjectCategoryMobile" runat="server" DataSourceID="odsProjectCategory"
                                 EnableModelValidation="True">
                                 <ItemTemplate>
                                     <li>
-                                        <%--<a href='<%# progressTitle(Eval("ProjectCategoryNameEn")) + "-pri-" + Eval("ProjectCategoryID") + ".aspx" %>'
+                                        <a href='<%# progressTitle(Eval("ProjectCategoryNameEn")) + "-pci-" + Eval("ProjectCategoryID") + ".aspx" %>'
                                         class="corner">
-                                        <%# Eval("ProjectCategoryNameEn")%></a>--%>
-                                        <a href="javascript:void(0);" class="corner">
-                                            <%# Eval("ProjectCategoryNameEn")%></a>
+                                        <%# Eval("ProjectCategoryNameEn")%></a>
+                                        <%--<a href="javascript:void(0);" class="corner">
+                                            <%# Eval("ProjectCategoryNameEn")%></a>--%>
                                         <asp:HiddenField ID="hdnProjectCategoryID" runat="server" Value='<%# Eval("ProjectCategoryID") %>' />
                                         <asp:ListView ID="lstProjectMobile" runat="server" DataSourceID="odsProjectMobile"
                                             EnableModelValidation="True">
