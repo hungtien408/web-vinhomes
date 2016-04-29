@@ -384,7 +384,8 @@ body
     padding: 0;
     margin: 0;
     position: absolute;
-    min-width: 220px;
+    /*min-width: 220px;*/
+    min-width: 240px;
     z-index: 99;
 }
 #menu .menu-right
@@ -393,7 +394,7 @@ body
     right: auto;
     top: 0;*/
     top: 100%;
-    left: 0;
+    left: -8px;
 }
 .menu-sub > li {
     margin-top: 5px;
@@ -416,7 +417,8 @@ body
      background-color: #00006b;
     border: solid 2px #ac8609;
     position: relative;
-    min-width: 220px;
+    /*min-width: 220px;*/
+    min-width: 240px;
 }
 .menu-sub .glyphicon
 {
@@ -1102,6 +1104,12 @@ body
     list-style: none;
     padding: 0;
     margin: 0;
+}
+.banner-sub {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
 }
 /*=======col aside====*/
 .wrapper-about, .wrapper-project {

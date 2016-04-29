@@ -75,3 +75,34 @@
     <asp:ContentPlaceHolder ID="cphBottom" runat="server">
     </asp:ContentPlaceHolder>
 </asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="cphBannerSub" runat="Server">
+    <asp:ListView ID="lstBannerSub" runat="server" DataSourceID="odsBannerSub" EnableModelValidation="True">
+        <ItemTemplate>
+            <div class="slide">
+                <img id="Img1" alt='<%# Eval("FileName") %>' src='<%# !string.IsNullOrEmpty(Eval("FileName").ToString()) ? "~/res/advertisement/" + Eval("FileName") : "~/assets/images/banner-sub-1.jpg" %>' runat="server" />
+            </div>
+        </ItemTemplate>
+        <LayoutTemplate>
+            <div class="banner-sub">
+                <div class="slider-bannersub">
+                    <span runat="server" id="itemPlaceholder" />
+                </div>
+            </div>
+        </LayoutTemplate>
+    </asp:ListView>
+    <asp:ObjectDataSource ID="odsBannerSub" runat="server" SelectMethod="AdsBannerSelectAll"
+        TypeName="TLLib.AdsBanner">
+        <SelectParameters>
+            <asp:Parameter Name="StartRowIndex" Type="String" />
+            <asp:Parameter Name="EndRowIndex" Type="String" />
+            <asp:Parameter DefaultValue="6" Name="AdsCategoryID" Type="String" />
+            <asp:Parameter Name="CompanyName" Type="String" />
+            <asp:Parameter Name="Website" Type="String" />
+            <asp:Parameter Name="FromDate" Type="String" />
+            <asp:Parameter DefaultValue="" Name="ToDate" Type="String" />
+            <asp:Parameter DefaultValue="True" Name="IsAvailable" Type="String" />
+            <asp:Parameter Name="Priority" Type="String" />
+            <asp:Parameter DefaultValue="True" Name="SortByPriority" Type="String" />
+        </SelectParameters>
+    </asp:ObjectDataSource>
+</asp:Content>

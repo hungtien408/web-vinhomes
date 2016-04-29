@@ -35,7 +35,7 @@
                     <asp:Parameter Name="Description" Type="String" />
                     <asp:Parameter Name="ProjectCategoryID" Type="String" />
                     <asp:Parameter Name="Tag" Type="String" />
-                    <asp:Parameter Name="IsShowOnHomePage" Type="String" />
+                    <asp:Parameter DefaultValue="True" Name="IsShowOnHomePage" Type="String" />
                     <asp:Parameter Name="FromDate" Type="String" />
                     <asp:Parameter Name="ToDate" Type="String" />
                     <asp:Parameter DefaultValue="True" Name="IsAvailable" Type="String" />

@@ -12,12 +12,12 @@
             </asp:ContentPlaceHolder>
             <div class="col-aside">
                 <div class="listAside">
-                    <asp:ListView ID="lstProject" runat="server" DataSourceID="odsProject"
-                        EnableModelValidation="True">
+                    <asp:ListView ID="lstProject" runat="server" DataSourceID="odsProject" EnableModelValidation="True">
                         <ItemTemplate>
                             <div class="box-in">
                                 <div class="boxa">
-                                    <a href='<%# progressTitle(Eval("ProjectTitle")) + "-pri-" + Eval("ProjectID") + ".aspx" %>' class="box-img">
+                                    <a href='<%# progressTitle(Eval("ProjectTitle")) + "-pri-" + Eval("ProjectID") + ".aspx" %>'
+                                        class="box-img">
                                         <img id="Img1" alt='<%# Eval("ImageName") %>' src='<%# !string.IsNullOrEmpty(Eval("ImageName").ToString()) ? "~/res/project/" + Eval("ImageName") : "~/assets/images/img-about-1.jpg" %>'
                                             runat="server" />
                                     </a>
@@ -35,8 +35,8 @@
                         TypeName="TLLib.Project">
                         <SelectParameters>
                             <asp:Parameter Name="RerultCount" Type="String" DefaultValue="10" />
-                            <asp:QueryStringParameter DefaultValue="" Name="ProjectID" 
-                                QueryStringField="pri" Type="String" />
+                            <asp:QueryStringParameter DefaultValue="" Name="ProjectID" QueryStringField="pri"
+                                Type="String" />
                         </SelectParameters>
                     </asp:ObjectDataSource>
                 </div>
@@ -47,12 +47,12 @@
             </div>
             <div id="mobileAside">
                 <div class="listAside isolist">
-                    <asp:ListView ID="lstProjectMobile" runat="server" DataSourceID="odsProject"
-                        EnableModelValidation="True">
+                    <asp:ListView ID="lstProjectMobile" runat="server" DataSourceID="odsProject" EnableModelValidation="True">
                         <ItemTemplate>
                             <div class="box-in element-item">
                                 <div class="boxa">
-                                    <a href='<%# progressTitle(Eval("ProjectTitle")) + "-pri-" + Eval("ProjectID") + ".aspx" %>' class="box-img">
+                                    <a href='<%# progressTitle(Eval("ProjectTitle")) + "-pri-" + Eval("ProjectID") + ".aspx" %>'
+                                        class="box-img">
                                         <img id="Img1" alt='<%# Eval("ImageName") %>' src='<%# !string.IsNullOrEmpty(Eval("ImageName").ToString()) ? "~/res/project/" + Eval("ImageName") : "~/assets/images/img-about-1.jpg" %>'
                                             runat="server" />
                                     </a>
@@ -74,4 +74,35 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="cphBottom" runat="Server">
     <asp:ContentPlaceHolder ID="cphBottom" runat="server">
     </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="cphBannerSub" runat="Server">
+    <asp:ListView ID="lstBannerSub" runat="server" DataSourceID="odsBannerSub" EnableModelValidation="True">
+        <ItemTemplate>
+            <div class="slide">
+                <img alt='<%# Eval("FileName") %>' src='<%# !string.IsNullOrEmpty(Eval("FileName").ToString()) ? "~/res/advertisement/" + Eval("FileName") : "~/assets/images/banner-sub-1.jpg" %>' runat="server" />
+            </div>
+        </ItemTemplate>
+        <LayoutTemplate>
+            <div class="banner-sub">
+                <div class="slider-bannersub">
+                    <span runat="server" id="itemPlaceholder" />
+                </div>
+            </div>
+        </LayoutTemplate>
+    </asp:ListView>
+    <asp:ObjectDataSource ID="odsBannerSub" runat="server" SelectMethod="AdsBannerSelectAll"
+        TypeName="TLLib.AdsBanner">
+        <SelectParameters>
+            <asp:Parameter Name="StartRowIndex" Type="String" />
+            <asp:Parameter Name="EndRowIndex" Type="String" />
+            <asp:Parameter DefaultValue="6" Name="AdsCategoryID" Type="String" />
+            <asp:Parameter Name="CompanyName" Type="String" />
+            <asp:Parameter Name="Website" Type="String" />
+            <asp:Parameter Name="FromDate" Type="String" />
+            <asp:Parameter DefaultValue="" Name="ToDate" Type="String" />
+            <asp:Parameter DefaultValue="True" Name="IsAvailable" Type="String" />
+            <asp:Parameter Name="Priority" Type="String" />
+            <asp:Parameter DefaultValue="True" Name="SortByPriority" Type="String" />
+        </SelectParameters>
+    </asp:ObjectDataSource>
 </asp:Content>

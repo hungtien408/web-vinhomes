@@ -272,7 +272,7 @@
                                     </li>--%>
                                     <%--<li><a href="about-us.aspx">Giới thiệu</a></li>--%>
                                     <li class="dropdown">
-                                        <a href="project.aspx" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dự án <span class="caret"></span></a>
+                                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dự án <span class="caret"></span></a>
                                         <asp:ListView ID="lstProjectCategory" runat="server" DataSourceID="odsProjectCategory"
                                             EnableModelValidation="True">
                                             <ItemTemplate>
@@ -469,7 +469,7 @@
                                 </LayoutTemplate>
                             </asp:ListView>
                         </li>--%>
-                        <li><a href="project.aspx" class="corner">Dự án<%--<span class="icona-right glyphicon glyphicon-chevron-right"></span>--%></a>
+                        <li><a href="javascript:void(0);" class="corner">Dự án<%--<span class="icona-right glyphicon glyphicon-chevron-right"></span>--%></a>
                             <asp:ListView ID="lstProjectCategoryMobile" runat="server" DataSourceID="odsProjectCategory"
                                 EnableModelValidation="True">
                                 <ItemTemplate>
@@ -817,6 +817,8 @@
             <asp:Parameter DefaultValue="True" Name="SortByPriority" Type="String" />
         </SelectParameters>
     </asp:ObjectDataSource>
+    <asp:ContentPlaceHolder ID="cphBannerSub" runat="server">
+    </asp:ContentPlaceHolder>
     <div id="sroltop">
         <a class="corner" href="javascript:void(0);"><span class="glyphicon glyphicon-chevron-up">
         </span></a>

@@ -56,6 +56,15 @@
                     banner.startAuto();
                 });
             }
+            $('.slider-bannersub').slick({
+                dots: false,
+                arrows: false,
+                fade: true,
+                pauseOnHover: false,
+                autoplay: true,
+                speed: 500,
+                autoplaySpeed: 3000
+            });
         });
         //function banner
         function bannerbox() {

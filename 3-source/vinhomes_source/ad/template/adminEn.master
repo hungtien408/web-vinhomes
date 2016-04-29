@@ -139,6 +139,9 @@
                     <asp:RadMenuItem runat="server" Owner="RadMenu1" PostBack="False" Text="Background"
                         Font-Bold="True" NavigateUrl="~/ad/bilingual/background.aspx">
                     </asp:RadMenuItem>
+                    <asp:RadMenuItem runat="server" Owner="RadMenu1" PostBack="False" Text="Banner Dự Án"
+                        Font-Bold="True" NavigateUrl="~/ad/bilingual/bannerproject.aspx">
+                    </asp:RadMenuItem>
                 </Items>
             </asp:RadMenu>
         </div>
