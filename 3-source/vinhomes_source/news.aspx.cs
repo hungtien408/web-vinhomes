@@ -7,7 +7,7 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using TLLib;
 
-public partial class project : System.Web.UI.Page
+public partial class news : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {

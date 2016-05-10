@@ -1312,6 +1312,180 @@ body
     overflow: hidden;
     color: #fff;
 }
+/*===news===*/
+.wrapper-news {
+    overflow: hidden;
+    width: 100%;
+}
+.news-big {
+    font-size: 15px;
+    line-height: 26px;
+}
+.news-lbox {
+    color: #282828;
+    font-size: 13px;
+    line-height: 22px;
+    font-weight: 300;
+    overflow: hidden;
+    padding: 18px 0;
+    width: 100%;
+}
+.news-lbox .news-img {
+    display: block;
+    float: left;
+    width: 28%;
+}
+.news-big .news-img {
+    width: 50%;
+}
+.news-lbox .news-img img {
+    display: block;
+    width: 100%;
+}
+.news-lbox .news-content {
+    overflow: hidden;
+    padding-left: 36px;
+}
+.date {
+    color: #3c3c3c;
+    font-style: italic;
+    font-size: 15px;
+}
+.news-big .date, .content-news .date {
+    padding: 4px 8px;
+    margin-bottom: 20px;
+    width: 120px;
+    text-align: center;
+    background-color: #e5e5e5;
+}
+.news-lbox .news-name {
+    margin-top: 6px;
+    margin-bottom: 8px;
+}
+.news-lbox .news-name a {
+    color: #00006b;
+    display: block;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 30px;
+    padding-bottom: 10px;
+}
+.news-big .news-name a {
+    font-size: 30px;
+    line-height: 36px;
+}
+.news-lbox .news-content .description {
+    text-align: justify;
+    max-height: 86px;
+    overflow: hidden;
+    width: 100%;
+    font-size: 15px;
+    color: #3c3c3c;
+    font-family: 'Roboto';
+}
+.news-big .news-content .description {
+    max-height: 152px;
+    margin-bottom: 20px;
+}
+.more-details {
+    overflow: hidden;
+    width: 100%;
+}
+.more-details a {
+    background-color: #fff;
+    color: #00006b;
+    display: block;
+    float: left;
+    border: 2px solid #00006b;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: 32px;
+    padding: 0 30px;
+}
+.pager {
+    text-align: center;
+    vertical-align: top;
+    font-size: 0;
+    margin: 0 0 10px;
+    width: 100%;
+    padding-top: 11px;
+}
+.pager a, .pager span span {
+    background: #fff;
+    color: #00006b;
+    display: inline-block;
+    font-size: 14px;
+    vertical-align: top;
+    text-align: center;
+    height: 24px;
+    line-height: 24px;
+    margin-left: 3px;
+    font-weight: 600;
+    vertical-align: top;
+    width: 24px;
+}
+.pager a:hover, .pager span.current {
+    background-color: #00006b;
+    border-color: #00006b;
+    color: #dea226;
+    text-decoration: none;
+}
+.pager .first, .pager .last {
+    font-size: 10px;
+}
+.title-news, .title-2 {
+    color: #00006b;
+    margin: 10px 0;
+}
+.title-2 {
+    font-weight: 700;
+}
+.content-news {
+    overflow: hidden;
+    width: 100%;
+    padding: 0 100px;
+}
+.headpo {
+    background: url(../images/line-4.png) repeat-x left center;
+    overflow: hidden;
+    width: 100%;
+}
+.headpo .title {
+    background-color: #fff;
+    float: left;
+    padding-right: 10px;
+    margin-bottom: 2px;
+    margin-top: -2px;
+    color: #3c3c3c;
+}
+.list-order {
+    list-style: none;
+    margin: 0;
+    padding: 10px 20px 10px 0;
+}
+.list-order li {
+    overflow: hidden;
+    width: 100%;
+    background: url("../images/list-order.png") no-repeat left center;
+    padding-left: 10px;
+}
+.list-order li a {
+    color: #00006b;
+    display: block;
+    float: left;
+    font-size: 15px;
+    line-height: 30px;
+    position: relative;
+    padding: 2px 5px 2px 15px;
+}
+.list-order li a:hover {
+    text-decoration: none;
+}
+.list-order li a:focus {
+    font-weight: 600;
+}
 /*======================================================FOOTER===========================================*/
 #wrapper #footer
 {
@@ -1590,6 +1764,9 @@ body .mobilep-right {
     {
         bottom: 24px;
     }
+    .content-news {
+        padding: 0 50px;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 1199px)
@@ -1746,6 +1923,9 @@ body .mobilep-right {
         margin: 0 auto;
     
     }
+    .content-news {
+        padding: 0 40px;
+    }
 }
 @media (min-width: 768px) and (max-width: 870px)
 {
@@ -1849,6 +2029,26 @@ body .mobilep-right {
         float: none;
         margin: 0 auto;
     
+    }
+    /*===news===*/
+    .news-big .news-img {
+        width: 100%;
+        float: none;
+    }
+    .news-big .news-content 
+    {
+        padding: 5px 0 0;
+    }
+    .news-big .news-name a {
+        font-size: 26px;
+        line-height: 32px;
+    }
+    .news-lbox .news-name a {
+        font-size: 22px;
+        line-height: 28px;
+    }
+    .content-news {
+        padding: 0 30px;
     }
 }
 @media (min-width: 481px) and (max-width: 767px)
@@ -1971,6 +2171,17 @@ body .mobilep-right {
     }
     #wrapper #footer {
         position: relative;
+    }
+    /*====news====*/
+    .news-lbox .news-img {
+        float: none;
+        width: 100%;
+    }
+    .news-lbox .news-content {
+        padding: 5px 0 0;
+    }
+    .content-news {
+        padding: 0 10px;
     }
 }
 @media (max-width: 480px)

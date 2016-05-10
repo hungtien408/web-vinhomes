@@ -7,7 +7,7 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using TLLib;
 
-public partial class project_details : System.Web.UI.Page
+public partial class new_details : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -39,5 +39,9 @@ public partial class project_details : System.Web.UI.Page
 
             lblTitle.Text = strTitle;
         }
+    }
+    protected string progressTitle(object input)
+    {
+        return Common.ConvertTitle(input.ToString());
     }
 }

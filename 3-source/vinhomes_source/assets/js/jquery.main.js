@@ -280,13 +280,15 @@
             $("#hotline").addClass("hotlineroll");
             $(".contactdesk").addClass("contactusroll");
             //$(".footer-wrapper").addClass("footerscroll");
-        } else if ($('div').hasClass('wrapper-about')) {
-            $(".footer-wrapper").addClass("footerscroll");
         } else {
             $("#header-menu").removeClass("header-sroll");
             $("#hotline").removeClass("hotlineroll");
             $(".contactdesk").removeClass("contactusroll");
             //$(".footer-wrapper").removeClass("footerscroll");
+        }
+
+        if ($('div').hasClass('wrapper-about')) {
+            $(".footer-wrapper").addClass("footerscroll");
         }
     }
     function mysroll() {
